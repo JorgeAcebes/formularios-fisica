@@ -1,0 +1,43 @@
+\section*{Dinámica molecular}
+\begin{align*}
+    &\phi_q^N(\vec{R}) =\frac{1}{R}F_\upsilon^q(R)\;Y_{J}^{M_J}(\theta, \phi)\;\;\;\,     \tilde{H} \, F_\upsilon^q (R)= E_{q,v,J}\,F_\upsilon^q(R)
+    \scalebox{0.8}{$\begin{array}{c}
+    J\equiv \text{nº cuántico rotacional (0,1,2,...)} 
+    \\
+    \upsilon\equiv \text{nº cuántico vibracional (0,1,2,...)}
+    \end{array}$}
+    \\
+    &\text{Energía espectroscópica (profundidad del pozo): }D_e = U_q^{ef}(\infty)- U_q^{ef}(R_0)\\
+    &\text{$E_\nu\! =\!D_e \!\Rightarrow\!$ nº máx estados vib.}\!=\!\lfloor \nu \rceil + 1 \;\;\;\text{Energía $\underset{\text{(o enlace)}}{\text{disociación}}$: }D_0\!=\!D_e\!-\!E_{\text{vib.}, 0}^{(0)}\; 
+    \scalebox{0.8}{\text{(equiv. $J$)}}\\
+    &\text{$U_q^{ef}\!=\!U_{NN}\!+\!E_q^{e} \!\Rightarrow\!$ para isótopos: $U^{ef}(^A _Z X_2)=U^{ef}(^{A'} _Z X_2)$ ($U_{NN}$ igual, $E^e$ varía poco)}\\
+    &\text{$\Rightarrow$ ambas moléculas isotópicas tienen misma $\kappa$ y $D_e$, pero distinta $\mu$, $\omega_0$ y $E_\upsilon$.}
+  \\&\underline{\text{Aproximación rotor rígido y oscilador armónico}\text{($R\!-\!R_0\! <\!< \Leftrightarrow \downarrow \upsilon$)}}\;\;\; R_0\equiv\text{pos. eq.}\\
+    &\centerdot \text{Rotor rígido: }R=R_0 \;\;\;\;\;\centerdot E_{q,v,J}=E_{J,v}^{(0)}+U_q^{ef}(R_0)\;\;\; \;\;\;E_{J,v}^{(0)}=E_{\text{rot.}}^{(0)}+E_{\text{vib.}}^{(0)}
+    \\[1pt]&\centerdot \text{O.A.: }U_q^{ef}(R)\approx U_q^{ef}(R_0)+\frac{1}{2}\kappa (R-R_0)^2 \;\;\; \kappa=\left. \frac{d^2U_q^{ef}}{dR^2} \right|_{R = R_0}\!\!\!\!\!\!\!\equiv\overset{\text{cte. de fuerza}}{\text{del oscilador}} \;\text{[N m$^{-1}$]}\\
+    &E_{\text{rot.}}^{(0)}= B\,J(J+1)\;\;\; B=\frac{\hbar^2}{2I_0}\equiv\text{cte. rotacional}\;\;\; I_0=\mu R_0^2\equiv
+    \begin{array}{c}
+      \text{momento de inercia}      \\
+    \text{[kg m$^2$ = J s$^2$]}
+    \end{array}
+   \\
+    &E_{\text{vib.}}^{(0)}= \hbar\omega_0\left(\upsilon+\frac{1}{2}\right)\;\; \;\; \omega_0 = \sqrt{\frac{\kappa}{\mu}}\;\;\; \; \nu_0=\frac{\omega_0}{2\pi}\equiv \text{frec.}\;\;\; \; \nu_i =\frac{E_{\text{vib., i}}^{(0)}}{h}\;\;\;\; T_i =\frac{1}{\nu_i}
+    \\
+    &\Delta E_{\text{rot.}}\sim 10^{-2}-10^{-4} \text{ eV (IR lejano - micro)} \;\;\;\; \Delta E_{\text{vibr.}}\sim 1 - 10^{-2}\text{ eV (IR cercano) }
+    \\&\text{Niveles rotacionales $\sim$ ``estructura fina" de niveles fonónicos (niveles vibracionales)}\\
+    &\text{Cambio nivel electrónico: }\Delta E_{\text{electrónicas}}\gtrsim
+1 \text{ eV (UV cercano - Visible - IR cercano)}
+    \\
+&\dashuline{\text{Correcciones de armonicidad y distorsión centrífuga}}\\
+% &\centerdot E_{\text{rot.}}^{(2)}=B\, J(J+1)+ \kappa_1(R-R_0)+ \kappa_2(R-R_0)^2\; \;\; \kappa_1 \!=\!\frac{-2BJ(J\!+\!1)}{R_0}\;\; \; \kappa_2 \!=\!\frac{3BJ(J\!+\!1)}{R_0}\\
+% &\centerdot U^{ef}_q (R)\approx U_q^{ef}(R_0)+\frac{1}{2}\kappa (R-R_0)^2+\kappa_3 (R-R_0)^3+\kappa_4 (R-R_0)^4\\
+&\frac{E^{(2)}_{J,\upsilon}}{hc}\! =\! {\frac{E_{J,\upsilon}^{(0)}}{hc}} \!-\! \overbrace{\chi_e \frac{\nu_0}{c}(\upsilon + 1/2)^2}^{\scalebox{0.8}{corrección anarmónica}} \!-\! \overbrace{\alpha_e \frac{\nu_0}{c}(\upsilon + 1/2)J(J+1)}^{\scalebox{0.8}{interacción vibración-rotación}} \!-\! \overbrace{D_e[J(J+1)]^2}^{\scalebox{0.8}{distorsión centrífuga}}\!\!\equiv\!\!\!\!\!\begin{array}{c}
+     \text{nº de onda}  \\
+     \text{[cm$^{-1}$]}
+\end{array}\\
+&\text{Coeficientes que multiplican nº cuánt $\equiv$ ctes. espectroscópicas de la molécula $[ \text{cm}^{-1}]$}\\
+&\underline{\text{Potencial de Morse}}\;\;(\text{buenos resultados para $\upsilon$ no muy grande})\\
+&U_q^{ef}(R)=U_q^{ef}(\infty)+U_q^{\text{M}}(R)\;\;\;\;U_q^{\text{M}}(R)=D_e\left[e^{-2\alpha (R-R_0)}-2e^{-\alpha (R-R_0)}\right]\\
+&E_{J,\upsilon}=E_{\upsilon}=\hbar \omega_0 \left[ \left(\upsilon+\frac{1}{2}\right)-\beta\left(\upsilon+\frac{1}{2}\right)^2\right] \;\;\;\;\; D_e \alpha ^2 = \frac{\kappa}{2}\;\;\;\;\; \beta\omega_0= \frac{\hbar \omega_0^2}{4 D_e}\equiv\text{cte. anarm.}\\
+&\text{$k\equiv$ nº de onda [cm$^{-1}$]}\;\;\rightarrow\;\; \nu = k\cdot c\;\;\; c=2.997 \times 10^{-10}\text{ [cm s$^{-1}$]}\;\;\;\ k=10^7/\lambda \text{[nm]}
+\end{align*}

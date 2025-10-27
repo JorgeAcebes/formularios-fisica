@@ -1,0 +1,68 @@
+\section*{Átomos con 1 e$^-$}
+\begin{align*}
+&\underline{\text{Modelo Bohr}}\text{: órbitas circulares, energía discreta y cuantizada ($L=n\hbar$), deg: $2n^2$}\\
+&\frac{Ze^2}{4\pi \varepsilon_0 r^2}= m_e \frac{v^2}{r} \rightarrow r_n = a_0  \frac{n^2}{Z}, \,E_n= -Z^2\frac{Ry}{n^2}, \, v_n= \frac{n\hbar}{m_e r_n}=\frac{Ze^2}{4\pi\varepsilon_0 n\hbar}, \, \nu = \frac{v_n}{2\pi r_n}\\
+&
+\Delta E = h\nu  = Z^2 Ry \left(\frac{1}{n^2_f}- \frac{1}{n^2_i}\right) \; \; 
+\left|\hspace{-2pt}
+\begin{array}{l}
+\text{Lyman: }n_f = 1 \\
+\text{Balmer: }n_f = 2\\
+\text{Paschen: }n_f = 3
+\end{array}
+\right.
+\left|\hspace{-2pt}
+\begin{array}{l}
+\text{Brackett: }n_f = 4 \\
+\text{Pfund: }n_f = 5\\
+\text{Temp. baja: }n_i = 1
+\end{array}
+\right.
+\left.\hspace{-6pt}
+\begin{array}{c}
+\text{absorción:}\\
+n_i<n_f
+\end{array}
+\right.\\
+&\underline{\text{Átomos hidrogenoides: }} \text{ $Y_l^m (\theta, \phi)\equiv$arm. esf. (norm.)}
+\\&\left[-\frac{\hbar^2}{2m}\frac{1}{r}\frac{\partial^2}{\partial r^2}r+\frac{\hat{\vec{L}}}{2mr^2}+\hat{U}(\vec{r})\right] \Psi (r,\theta, \phi)= E\Psi (r, \theta, \phi)\; \; \; 
+\left.\hspace{0pt}
+\begin{array}{c}
+\Psi = R_{n,l}(r)Y_l^m (\theta, \phi)
+\\
+n=0, 1, ..., \infty
+\end{array}
+\right.
+\\&
+\forall \text{ Mom. angul.: }\hat{L}^2\Psi = l(l+1)\hbar^2 \Psi \;\; \; L_z \Psi=m\hbar^2 \Psi\;\;\;  l= 0,..., n-1, \,\,\, m=-l,...,l\\
+&\text{Densidad carga electrónica: prob. encontrar e$^-$ en $|nlm\rangle$ en diff vol.:}\\
+&dP_{nlm}(\vec{r})= |\Psi_{nlm}|^2 d^3 \vec{r}=|R_{nl}|^2r^2dr\,\, |Y^m_l|^2 d\Omega \;\; (\text{parte ang. al $\int$ en esf. }=4\pi)\\
+&\text{Dens. prob. angular: } P_{lm}(\theta \phi)\;\; P_{lm}(\theta, \phi)d\Omega = |Y_{l}^m (\theta \phi)|^2 d\Omega \\
+&\text{Dens. prob. radial: } P_{nl}(r)\;\;\; P_{nl}(r) dr= r^2 |R_{nl} (r)|^2 dr\xrightarrow{\int_0^\infty} \text{radio subcapa: }\langle r_{nlm}\rangle\\
+&\langle r_{nlm}\rangle=\frac{a_0}{2Z}[3n^2-l(l+1)] > \text{máx}(P_{nl}(r))=\frac{n^2 a_0}{Z} \equiv \text{radio más prob.}\\
+&\langle r^2 \rangle = \frac{a_0^2 n^2}{2Z}[5n^2-3l(l+1)+1]\; \; \; \langle\frac{1}{r}\rangle = Z[a_0 n^2]^{-1} \; \; \; \langle \frac{1}{r^2}\rangle = Z^2 [a_0^2 n^3 (l+\frac{1}{2})]^{-1}\\
+&R_{nl}(r)\xrightarrow{r\rightarrow 0}r^l, \text{ si } l\neq 0 \Rightarrow P_{nl}(r)\rightarrow 0 \;\;\;\; \;  \text{Arm. esf. reales: graficables} \rightsquigarrow\\
+&Y_{l,\cos}(\theta, \phi)\!=\!\frac{1}{\sqrt{2}}(Y_l^{|m|}+Y_l^{|m|*})\; \;\; \; Y_{l,\sin}(\theta, \phi)\!=\!\frac{1}{i\sqrt{2}}(Y_l^{|m|}-Y_l^{|m|*})\;\; \text{$m\!=\!0$ no cambia}\\
+&\underline{\text{Hamiltoniano estructura fina}} \;\; m=m_e\;\;\; \mathcal{\hat{H}}=mc^2+  \frac{\hat{\vec{p}}}{2m}\!+\!\hat{U}(r) + H_{mv} + H_{S-O} + H_{D}\\
+&H_{\text{masa-vel.}}\!=\!H_1\!=\! \frac{-\hat{\vec{p}}^4}{8m^3 c^2}\; \; \Rightarrow\;\; \Delta E_1 = - E_n \frac{Z^2\alpha^2}{n^2}\left[\frac{3}{4}-\frac{n}{l+1/2}\right]\\
+&H_{\text{S-O}}\!=\!H_2\!=\!\frac{e}{2m^2c^2}\hat{\vec{s}}\cdot (\vec{E}\times\hat{\vec{p}})\;\; \;\;\; H_{\text{Darwin}}=H_3 = \frac{e\hbar^2}{8m^2c^2}\nabla \vec{E} \; \;\;\; \left.\hspace{-7pt}
+\begin{array}{l}
+\text{$\Delta E_2$ ONLY if $l\neq0$}
+\\\text{$\Delta E_3$ ONLY if $l=0$}
+\end{array}
+\right.\\
+&\Delta E_2 = -E_n \frac{Z^2 \alpha^2}{2nl (l+1)(l+1/2)}[j(j+1)-l(l+1)-s(s+1/2)] \; \; \; \; \Delta E_3 = -E_n \frac{Z^2 \alpha^2}{n}\\
+&\text{deg: cada nivel se desdobla en $n$ multipletes de estrucura fina, caracterizados por $nl_{_j}$} \\
+&\underline{\text{Estructura hiperfina magnética}} \text{ (debido a spin nuclear $\hat{\vec{I}}$) $\; \; \; \vec{F}=\vec{j}\oplus\vec{I}\;\;\;\; m_I=\pm 1/2$}\\ 
+&\Delta E_{hf\mu}\!=\! \frac{\mathcal{A}h^2}{2}[F(F+1)-I(I+1)-j(j+1)] \;\; \mathcal{A}=\mathcal{A}(Z,n,g_I,a_\mu)\equiv \text{const. estr. hiperf.}
+\end{align*}
+\underline{\text{Otros}}\text{: $-E_n \equiv$ E. ionización}\;\;\;\;$\hat{U}=-\frac{Ze^2}{4\pi\varepsilon_0 r}$\;\;\;$\Delta E_{\text{fina, (1,2,3)}}^{\text{hidrogenoides}}= E_n\frac{Z^2 \alpha^2}{n^2}\left[\frac{n}{j+\tfrac{1}{2}}-\tfrac{3}{4}\right]$\\
+
+
+%%===VARIOS TEXTOS ENCIMA DE OTROS===== 
+% \left|\hspace{0pt}
+% \begin{array}{l}
+% ct=\frac{c^2}{a}\sinh(\tfrac{a}{c}\tau)\\
+% x=x_0-\frac{c^2}{a}+\frac{c^2}{a} \cosh(\tfrac{a}{c}\tau)
+% \end{array}
+% \right.
