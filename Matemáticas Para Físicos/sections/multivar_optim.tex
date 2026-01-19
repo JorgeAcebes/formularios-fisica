@@ -1,0 +1,58 @@
+\section*{Optimization of scalar fields in $\mathbb{R}^n$ \normalfont{($f: \text{Dom}_f\subseteq \mathbb{R}^n\rightarrow \mathbb{R}, \; \mathbf{x}\mapsto f(\mathbf{x})$)}}
+\begin{align*}
+    &1. \text{ Find the domain and check for openness/compactness.}\\
+    &2. \text{ Compute the gradient vector: } \nabla f(\mathbf{x}) = \left( \frac{\partial f}{\partial x_1}, \dots, \frac{\partial f}{\partial x_n} \right). \\
+    &3. \text{ Find critical points (stationary points): } \nabla f(\mathbf{x}) = \mathbf{0}.\\
+    &4. \text{ Compute the Hessian matrix: } H_f(\mathbf{x})_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j}.\\
+    &5. \text{ Classification of a critical point } \mathbf{x}_0 \text{ using the eigenvalues } \{\lambda_i\} \text{ of } H_f(\mathbf{x}_0):\\
+    &
+    \left|
+    \begin{array}{ll}
+         \bullet \text{ All } \lambda_i > 0 \Rightarrow H_f \text{ positive definite } \Rightarrow \mathbf{x}_0 \text{ is a \textbf{local minimum}.} \\
+         \bullet \text{ All } \lambda_i < 0 \Rightarrow H_f \text{ negative definite } \Rightarrow \mathbf{x}_0 \text{ is a \textbf{local maximum}.} \\
+         \bullet \text{ Mixed signs in } \lambda_i \Rightarrow H_f \text{ indefinite } \Rightarrow \mathbf{x}_0 \text{ is a \textbf{saddle point}.} \\
+         \bullet \text{ Some } \lambda_i = 0 \Rightarrow \text{The second-order test is \textbf{inconclusive}.}
+    \end{array}
+    \right.\\
+    &6. \text{ Sylvester's Criterion (for } n=2 \text{): } \Delta_1 = f_{xx}, \; \Delta_2 = \det(H_f).\\
+    &
+    \left|
+    \begin{array}{ll}
+         \Delta_2 > 0 \text{ and } \Delta_1 > 0 \Rightarrow \text{local minimum.} \\
+         \Delta_2 > 0 \text{ and } \Delta_1 < 0 \Rightarrow \text{local maximum.} \\
+         \Delta_2 < 0 \Rightarrow \text{saddle point.} \\
+         \Delta_2 = 0 \Rightarrow \text{inconclusive.}
+    \end{array}
+    \right.
+\end{align*}
+
+
+\section*{Constrained Optimization: Lagrange Multipliers \normalfont{($f, g_i: \mathbb{R}^n \to \mathbb{R}$)}}
+\begin{align*}
+    &1. \text{ Combine objective $f$ and $m$ constraints $g_i(\mathbf{x}) = c_i$ using multipliers } \lambda_i: \\
+    &\hspace{20pt} \mathcal{L}(x_1, \dots, x_n, \lambda_1, \dots, \lambda_m) = f(\mathbf{x}) - \sum_{i=1}^m \lambda_i \big( g_i(\mathbf{x}) - c_i \big) \\
+    &2. \text{ Solve the system of equations: } \
+    \begin{cases} 
+        \frac{\partial \mathcal{L}}{\partial x_j} = 0 \Rightarrow \nabla f(\mathbf{x}) = \sum_{i=1}^m \lambda_i \nabla g_i(\mathbf{x}) \\ 
+        \frac{\partial \mathcal{L}}{\partial \lambda_i} = 0 \Rightarrow g_i(\mathbf{x}) = c_i  
+    \end{cases} \\
+    &3. \text{ Solve for } (\mathbf{x}^*, \boldsymbol{\lambda}^*) \text{ to find critical points } P_j. \\
+    &4. \text{ Evaluate $\bar H$ at each } P_j. \text{ Size is } (m+n) \times (m+n): \\
+    &\bar{H}(\mathbf{x}, \boldsymbol{\lambda}) = 
+    \left( \begin{array}{c|c}
+        \mathbf{0}_{m \times m} & \mathbf{J}_g(\mathbf{x}) \\ \hline
+        \mathbf{J}_g(\mathbf{x})^T & \mathbf{H}_{\mathbf{x}}(\mathcal{L})
+    \end{array} \right) \;\;\;\;\;\;\;\; J_g(\mathbf{x}) = \left( \frac{\partial g_i}{\partial x_j} \right)\;\;\;\;\;\;\;\;  H_{\mathbf{x}}\mathcal{L} = \left( \frac{\partial^2 \mathcal{L}}{\partial x_i \partial x_j} \right)  \\
+  &5. \text{ Check the last } n-m \text{ minors $\Delta_k \text{ of } \bar{H}$, from } k = 2m+1 \text{ up to } k = n+m.  \\&
+    \left|
+    \begin{array}{lc}
+         \bullet \text{ All checked minors have the same sign as } (-1)^m & \Rightarrow\;P_j \; \textbf{local minimum}. \\
+         \bullet \text{ Minors alternate in sign, starting with } (-1)^{m+1} & \Rightarrow\;P_j \; \textbf{local maximum}. \\
+    \end{array}
+    \right. \\
+    &\hspace{7pt} \text{-- {If $n=2, m=1$}}:\text{let } \Delta_3 = \det(\bar{H}) \implies \Delta_3 > 0 \Rightarrow \text{max.}\;\; \Delta_3< 0 \Rightarrow \text{min.}
+    \\
+    &6. \text{ Compare } f(P_j) \text{ and check boundaries (if the domain is not compact).}
+\end{align*}
+
+

@@ -1,0 +1,49 @@
+\section*{Special Functions \& Orthogonal Polynomials}
+
+\underline{Legendre Polynomials}
+\begin{align*}
+    &\text{Differential Equation: } (1-x^2)y'' - 2xy' + l(l+1)y = 0, \quad x \in [-1, 1] \\
+    &\text{Rodrigues' Formula: } P_l(x) = \frac{1}{2^l l!} \frac{d^l}{dx^l}(x^2-1)^l \\
+    &\text{Generating Function: } (1-2xt+t^2)^{-1/2} = \sum_{l=0}^\infty P_l(x) t^l \\
+    &\text{Associated Legendre: } P_l^m(x) = (-1)^m (1-x^2)^{m/2} \frac{d^m}{dx^m} P_l(x)
+\end{align*}
+
+\underline{Hermite Polynomials}
+\begin{align*}
+    &\text{Differential Equation: } y'' - 2xy' + 2ny = 0, \quad x \in (-\infty, \infty) \\
+    &\text{Rodrigues' Formula: } H_n(x) = (-1)^n e^{x^2} \frac{d^n}{dx^n} e^{-x^2} \\
+    &\text{Generating Function: } e^{2xt-t^2} = \sum_{n=0}^\infty H_n(x) \frac{t^n}{n!} \\
+    &\text{Orthogonality: } \int_{-\infty}^{\infty} H_n(x) H_m(x) e^{-x^2} dx = \sqrt{\pi} 2^n n! \delta_{nm}
+\end{align*}
+
+\underline{Associated Laguerre Polynomials} 
+\begin{align*}
+    &\text{Differential Equation: } x y'' + (k + 1 - x) y' + n y = 0, \quad x \in [0, \infty) \\
+    &\text{Rodrigues' Formula: } L_n^k(x) = \frac{e^x x^{-k}}{n!} \frac{d^n}{dx^n} (e^{-x} x^{n+k}) \\
+    &\text{Normalization: } \int_0^{\infty} e^{-x} x^k L_n^k(x) L_m^k(x) dx = \frac{(n+k)!}{n!} \delta_{nm}
+\end{align*}
+
+\underline{Spherical Harmonics} 
+\begin{align*}
+    &Y_l^m(\theta, \phi) = (-1)^m \sqrt{\frac{2l+1}{4\pi} \frac{(l-m)!}{(l+m)!}} P_l^m(\cos \theta) e^{im\phi} \\
+    &\text{Orthogonality: } \int_{0}^{2\pi} \int_{0}^{\pi} Y_l^m Y_{l'}^{m'*} \sin \theta \, d\theta \, d\phi = \delta_{ll'} \delta_{mm'} \\
+    &\text{Parity: } Y_l^m(\pi - \theta, \phi + \pi) = (-1)^l Y_l^m(\theta, \phi)
+\end{align*}
+
+\underline{Bessel Functions} 
+\begin{align*}
+    &\text{Bessel Equation: } x^2 y'' + xy' + (x^2 - n^2)y = 0 \\
+    &\text{Generating Function: } e^{\frac{x}{2}(t-t^{-1})} = \sum_{n=-\infty}^\infty J_n(x) t^n \\
+    &\text{Orthogonality on $[0, a]$: } \int_0^a J_n(x_{ni} \frac{\rho}{a}) J_n(x_{nj} \frac{\rho}{a}) \rho \, d\rho = \frac{a^2}{2} [J_{n+1}(x_{ni})]^2 \delta_{ij}
+\end{align*}
+
+\begin{center}
+    \tiny
+    \begin{tabular}{|l|c|c|c|}
+    \hline
+    \textbf{Polynomial} & \textbf{Interval} & \textbf{Weight $w(x)$} & \textbf{Normalization} \\ \hline
+    Legendre & $[-1, 1]$ & $1$ & $2/(2n+1)$ \\ \hline
+    Hermite & $(-\infty, \infty)$ & $e^{-x^2}$ & $\sqrt{\pi} 2^n n!$ \\ \hline
+    Laguerre & $[0, \infty)$ & $x^k e^{-x}$ & $(n+k)!/n!$ \\ \hline
+    \end{tabular}
+\end{center}

@@ -1,0 +1,48 @@
+\section*{Complex Analysis\normalfont\scriptsize{ ($\alpha,\beta,r,\theta,t,p,R\!\in\!\mathbb{R}$,$\;z,w\!\in\!\mathbb{C}$,$\;n,k\!\in\!\mathbb{N}_0$,$\;m\!\in\!\mathbb{N}_+$,$\;i^2\!=\!-1$)}}
+\normalfont\scriptsize{ p.v. $\equiv$\! principal value \; $\gamma \equiv$ closed contour path positively oriented (anticlockwise)}\\
+\normalfont\scriptsize{$-\gamma\equiv \gamma$ with reverse orientation $\Rightarrow\int_{-\gamma} f(z)dz= -\int_{\gamma}f(z)dz$}
+\begin{align*}
+&z\!=\!\alpha\!+\!i\beta\!=\!re^{i\theta}\;\;r\!=\!|z|\!=\!\sqrt{\alpha^2\!+\!\beta^2}\;\;\theta\!=\!\arctan(\beta/\alpha)\;\;\overline{z}\!=\!\alpha\!-\!i\beta \; \; z^{-1}=\tfrac{\overline{z}}{r^{2}} = \tfrac{1}{re^{i\theta}}\\
+&z\overline{z}\!=\!|z|^2\;\;z\!+\!\overline{z}\!=\!2\Re[z]\;\;z\!-\!\overline{z}\!=\!2i\Im[z]\;\;\sqrt[n]{z}\!=\!\sqrt[n]{r}\exp[i(\tfrac{\theta+2\pi k}{n})],\;k\!<\!n\!-\!1 \\
+&z^w\!=\!e^{w\log z}\;\;\log z\!=\!\ln r\!+\!i(\theta\!\pm\!2\pi k)\xrightarrow{\text{p.v.}}\operatorname{Log}z\!=\!\ln r\!+\!i\theta,\;\theta\!\in\!(-\pi,\pi] \\
+&\operatorname{Log}e^z\!=\!z\Leftrightarrow\Im z\!\in\!(-\pi,\pi]\;\;\operatorname{Log}(zw)\!=\!\operatorname{Log}z\!+\!\operatorname{Log}w\!\pm\!i2\pi k \\
+&e^{\pm i2\pi n}\!=\!1\;\;e^{i\frac{\pi}{2}\pm i2\pi n}\!=\!i\;\;e^{i\pi\pm i2\pi n}\!=\!-1\;\;e^{i\frac{3\pi}{2}\pm i2\pi n}\!=\!-i \\
+&f(z)\bigg|_{z_0}\!\!=\!\underbrace{\sum_{n=0}^\infty a_n(z\!-\!z_0)^n}_{\text{\scriptsize analytical part}}\!+\!\underbrace{\sum_{n=1}^\infty a_{-n}(z\!-\!z_0)^{-n}}_{\text{\scriptsize principal part}},\;a_{\pm n}\!=\!\frac{1}{2\pi i}\!\oint_\gamma\!\frac{f(z)}{(z\!-\!z_0)^{\pm n+1}}dz \\
+&\text{$f(z)$ complex differentiable at $z_0$ if }\exists f'(z_0)\!=\!\lim_{z\to z_0}\frac{f(z)\!-\!f(z_0)}{z\!-\!z_0} \\
+&f\!:\!U\!\subseteq\!\mathbb{C}\!\to\!\mathbb{C},\;U\text{ open set: $f$ holomorphic on $U$ if }\forall z_0\!\in\!U,\;\exists f'(z_0) \\
+&\text{$f$ holomorphic at $z_0$ if $f$ holomorphic on some neighborhood of $z_0$} \\
+&f(x\!+\!iy)\!=\!u(x,y)\!+\!iv(x,y)\text{ holomorphic}\Rightarrow u,v\text{ satisfy Cauchy-Riemann (C.R.)} \\
+&\text{C.R.: }\frac{\partial u}{\partial x}\!=\!\frac{\partial v}{\partial y}\text{ and }\frac{\partial u}{\partial y}\!=\!-\frac{\partial v}{\partial x}\text{ or }\frac{\partial u}{\partial r}\!=\!\frac{1}{r}\frac{\partial v}{\partial\theta}\text{ and }\frac{\partial v}{\partial r}\!=\!-\frac{1}{r}\frac{\partial u}{\partial\theta} \\
+&\partial_x u,\partial_y u,\partial_x v,\partial_y v\text{ continuous and satisfy C.R.}\Rightarrow f\text{ holomorphic} \\
+&\forall f\text{ holomorphic: }u,v\text{ harmonic on $\mathbb{R}^2$}\Leftrightarrow\nabla^2u\!=\!0,\nabla^2v\!=\!0 \\
+&\forall f\text{ holomorphic and $\gamma$ enclosing no holes: }\oint_\gamma\!f(z)dz\!=\!0 \\
+&\oint_\gamma\!\frac{f(z)}{z\!-\!z_0}dz\!=\!2\pi if(z_0)\text{ and }\oint_\gamma\!\frac{f(z)}{(z\!-\!z_0)^{n+1}}dz\!=\!\frac{2\pi i}{n!}f^{(n)}(z_0) \\
+&\forall f,\text{if $\Gamma$ continuously differentiable: }\int_\sigma\!f(z)dz\!\!=\!\!\int_a^b\!f(\Gamma(t))\cdot\Gamma'(t) \\
+&\ell(\Gamma)\!=\!\int_a^b\!|\Gamma'(t)|dt\!\equiv\!\text{contour length}\;\;\text{generally: }\!\Gamma(t)\!=\!\Gamma_R\!=\!z_0\!+\!Re^{it},\;\ell(\Gamma_R)\!=\!Rt_{\text{max}} \\
+&\text{$\forall f$ holomorphic on $U$, except at a finite number of isolated singularities $z_k$:} \\
+&\oint_\gamma\!f(z)dz\!=\!2\pi i\sum_k\operatorname{Res}(f,z_k),\;\operatorname{Res}(f,z_k)\!\equiv\!\text{residue of $f$ at }z_k \\
+&\equiv \text{ coefficient } c_{-1} \text{ of} (z-z_k)^{-1} \text{ in Laurent series of $f$ around }z_k \\
+&\text{$f$ holomorphic on $U$ except at $a \! \in \! U  \!\equiv \! f \!\in \!\mathcal{O}(U\!\setminus\!\{a\})$, possible isolated singularities:} \\
+&\hspace{5pt}\left|\!\!\!
+\begin{array}{l}
+\bullet\ a\text{ removable singularity}\Leftrightarrow\exists g\in\mathcal{O}(U)\mid f(z)\!=\!g(z)\;\forall z\in U\setminus\{a\} \\
+\bullet\ a\text{ pole}\Leftrightarrow\exists g\in\mathcal{O}(U),g(a)\!\neq\!0\mid f(z)\!=\!\frac{g(a)}{(z\!-\!a)^m}\;\forall z\in U\setminus\{a\}; m\equiv \text{pole order}\\
+\bullet\ a\text{ essential singularity}\Leftrightarrow\text{Laurent series principal part has $\infty$ terms}
+\end{array}
+\right. \\
+&\text{For poles $z_j$ of order $m$: }\operatorname{Res}(f,z_j)\!=\!\left.\frac{1}{(m\!-\!1)!}\frac{d^{m-1}}{dz^{m-1}}\big((z\!-\!z_j)^mf(z)\big)\right|_{z_j} \\
+&\nexists\text{ such formula for essential singularities}\\
+    &\text{Estimation lemma: } f(z) \in \mathbb{C}, \text{continuous on } \Gamma \text{ and } \exists  \ M\in \mathbb{R} \text{ such that :}\\
+&|f(z)| \leq M\  \forall z\in \Gamma \Rightarrow  \left|\int_\Gamma f(z)\ \!dz\right| \leq M \cdot l(\Gamma), \ M\coloneqq \sup_{z\in \Gamma} |f(z)|\\
+&\therefore \text{if } |f(z)| \leq \tfrac{C}{|z|^p}, p\!>\!1; C_{R^+}\! \equiv \Gamma_R , \ \!t\in [0,\pi],z_0\!=\!0\!\Rightarrow\! \left| \int_{C\!_{R^+}}\!\!\!\!\!\! f(z)\ \!dz\right| \!\xrightarrow{R\rightarrow\infty} 0  \\
+&\text{Jordan's lemma: } f(z)=e^{i\alpha z}g(z) \in \mathbb{C}, \alpha>0, \text{continuous on } C_{R^+} \Rightarrow
+\end{align*}
+{\tiny
+\[
+\left|\!\int_{C_{\!R^+}}\!\!\!\!\!\!\!f(z)\,dz\right|\!\leq\!\frac{\pi}{\alpha}M_{\!R},\ 
+M_{\!R}\!\coloneqq\!\!\!\!\max_{\theta\in[0,\pi]}\!\left|g\!\left(\!Re^{i\theta}\!\right)\right|\; \therefore\text{if }\! M_{\!R}\!\xrightarrow{\!R \rightarrow \infty}\!0\Rightarrow\int_{C_{\!R^+}}\!\!\!\!\!\!f(z)\,dz\!\xrightarrow{\!R \rightarrow \infty}\!0
+\]
+}
+\begin{align*}
+    &\text{Analogous for $C_{R^-} \!\!\equiv  \Gamma_R , \ \!t\in [\pi, 2\pi],z_0 =0$ when }\alpha <0
+\end{align*}

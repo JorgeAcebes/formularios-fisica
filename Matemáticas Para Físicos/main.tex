@@ -1,0 +1,137 @@
+% Minimal-spacing, three-column LaTeX preamble with fixed smallest font size
+\documentclass[8pt,a4paper,fleqn]{extarticle} % use smallest base font available
+
+% --- Geometry settings: minimal margins, landscape orientation ---
+\usepackage[landscape, top=0.0cm, left=0.1cm, right=0.1cm, bottom=0.3cm]{geometry}
+
+% --- No page numbering ---
+\pagestyle{empty}
+
+% --- Math and symbol packages with compact font style ---
+\usepackage{amssymb,amsmath,amsthm,amsfonts,bm,esint,mathtools}
+\usepackage{relsize}    % For \mathlarger
+
+% --- Multicolumn layout setup ---
+\usepackage{multicol}
+\setlength{\columnsep}{0.08cm}    % minimal separation between columns
+\setlength{\multicolsep}{0pt}    % no additional space around multicols
+% --- Hyperlinks set up ---
+\usepackage{xcolor}
+
+\usepackage{hyperref}
+\definecolor{new_pink}{RGB}{255,20,147} 
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red,
+    urlcolor=new_pink  
+}
+
+% --- Enables importing sections, make it easier for working with several .tex
+\usepackage{import}
+
+% --- Paragraph and line spacing adjustments ---
+\setlength{\parindent}{0pt}      % no paragraph indentation
+\setlength{\parskip}{0pt}        % no extra space between paragraphs
+\renewcommand{\baselinestretch}{1}% no extra line spacing
+
+% --- Enforce fixed font metrics to avoid variability ---
+\makeatletter
+\renewcommand\normalsize{%
+  \@setfontsize\normalsize{7}{7}% fixed 7pt font and baselineskip
+  \abovedisplayskip 2pt plus 1pt minus 1pt%
+  \belowdisplayskip \abovedisplayskip%
+  \abovedisplayshortskip 1pt plus 1pt%
+  \belowdisplayshortskip 1pt plus 1pt minus 1pt}
+\makeatother
+
+% --- Compact section headers ---
+\usepackage[compact]{titlesec} 
+\titlespacing*{\section}{0pt}{0.5pt}{0.5pt}
+\titleformat{\section}{\normalfont\bfseries}{}{0em}{}
+
+\usepackage{ragged2e} % For advanced alignment control
+\setlength{\RaggedRightRightskip}{0pt plus 0pt} % Remove line stretching
+\setlength{\RaggedRightParindent}{0pt} % No paragraph indentation
+
+\usepackage{booktabs}
+
+\usepackage{tikz}
+
+\usepackage{graphicx}
+
+
+\setlength{\columnseprule}{0.2pt} 
+
+%==================================================
+%Just to check the code
+\usepackage{lipsum}  
+%==================================================
+
+% --- Start document and three-column environment ---
+\begin{document}
+\begin{multicols}{3}
+\raggedright % Force left alignment throughout document
+\scriptsize{} 
+
+\import{sections/}{coordinate}
+
+\import{sections/}{vecderiv}
+
+\import{sections/}{vector}
+
+\import{sections/}{trig}
+
+\import{sections/}{gamma}
+
+\import{sections/}{taylor}
+
+\import{sections/}{symbols}
+
+\import{sections/}{preffixes}
+
+\import{sections/}{integrals}
+
+\import{sections/}{lin_algeb}
+
+\import{sections/}{conics}
+
+\import{sections/}{complex}
+
+\import{sections/}{fourier}
+
+\import{sections/}{real_integrals_complex}
+
+\import{sections/}{pauli}
+
+\import{sections/}{function_study}
+
+\import{sections/}{multivar_optim}
+
+\import{sections/}{product}
+
+\import{sections/}{summation}
+
+\import{sections/}{integrals_applications}
+
+\import{sections/}{Gram_Schmidt}
+
+\import{sections/}{combinatorics}
+
+\import{sections/}{special_functions}
+
+\import{sections/}{tensors}
+
+\import{sections/}{ode}
+
+\import{sections/}{quaternions}
+
+\import{sections/}{magnitudes}
+
+\import{sections/}{constants}
+
+\import{sections/}{acknowledgements}
+
+\import{sections/}{to_be_added}
+
+\end{multicols}
+\end{document}

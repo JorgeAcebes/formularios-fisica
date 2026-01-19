@@ -1,0 +1,41 @@
+\section*{Applications of Integration}
+\underline{Arc length of a curve}
+\begin{align*}
+    &\text{For the curve $y=f(x)$ over the interval } [a,b]:L=\int_a^b\sqrt{1+[f'(x)]^2}\, dx\\
+    &\text{For the curve $x=f(y)$ over the interval } [c,d]: L=\int_c^d\sqrt{1+[f'(y)]^2}\, dy\\
+    &\text{For the curve $(x(t), y(t))$ for  the interval $t\in [a,b]$}: L=\int_a^b\sqrt{\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2}\, dy
+\end{align*}
+\underline{Area between Curves}
+\begin{align*}
+    &\text{For the area between $y=f(x)$ and $y=g(x)$ on the interval $[a,b]$, where $f(x)\!\geq \!g(x)$:}\\
+    &A=\int_a^b [f(x)-g(x)] \, dx\\
+    &\text{For the area between $x=f(y)$ and $x=g(y)$ on the interval $[c,d]$, where $f(y)\!\geq \!g(y)$:}\\
+    &A=\int_c^d [f(y)-g(y)] \, dy
+\end{align*}
+\underline{Surface of Revolution}
+\begin{align*}
+    &\text{For a surface formed by rotating the curve $y=f(x)$ between the interval $[a,b]$,}\\
+    &\text{around the line } y=K:\\
+    &S= 2\pi \int_a^b |f(x)-K|\sqrt{1+[f'(x)]^2 }\, dx\\
+    &\text{For a surface formed by rotating the curve $x=f(y)$ between the interval $[c,d]$,}\\
+    &\text{around the line } x=K:\\
+    &S= 2\pi \int_a^b |x-K|\sqrt{1+ \left(\frac{dx}{dy}\right)^2 }\, dy\\
+    &\text{For a surface obtained by rotating the curve $(x(t), y(t))$  for the interval $t\in [a,b]$,}\\
+    &\text{around the line }y =K:\\
+    &S= 2\pi \int_a^b |y(t)-K|\sqrt{\left(\frac{dx}{dt}\right)^2+ \left(\frac{dy}{dt}\right)^2} \, dt\\
+    &\text{For a surface obtained by rotating the curve $(x(t), y(t))$ for the interval $t\in [c,d]$,} \\
+    &\text{around the line }x =K:\\
+    &S= 2\pi \int_c^d |x(t)-K|\sqrt{\left(\frac{dx}{dt}\right)^2+ \left(\frac{dy}{dt}\right)^2} \, dt
+\end{align*}
+\underline{\text{Volume of solid of revolution}}
+\begin{align*}
+&\text{For a solid formed by rotating the region between the curves of $f(x)$ and $g(x)$,}\\
+&\text{defined between the interval $[a,b]$, around the line $y=K$: }\\
+&V= \pi \int_a^b([f(x)-K]^2 -[g(x)-K]^2)dx
+\\
+&\text{For a solid formed by rotating the region between the curves of $f(x)$ and $g(x)$,}\\
+&\text{defined between the interval $[a,b]$, around the line $x=K$: }\\
+&V= 2\pi \int_a^b(x-K)[f(x)-g(x)]dx
+\end{align*}
+
+

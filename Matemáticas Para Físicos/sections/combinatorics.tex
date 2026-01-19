@@ -1,0 +1,27 @@
+\section*{Combinatorics}
+\underline{Permutations \normalfont{(Order matters, all $n$ elements are used)}}
+\begin{align*}
+    &\text{Arrangements of $n$ distinct elements: }P_n = n! \\
+    &\text{Arrangements of $n$ distinct elements in a closed loop: } PC_n = (n-1)!\\
+    &\text{Arrangements of $n$ elements with repetition (element $i$ repeated $n_i$ times): }\\
+    &PR_n^{n_1, n_2, \dots, n_k} = \frac{n!}{n_1! \, n_2! \, \dots \, n_k!}, \quad \text{with } \sum_{i=1}^k n_i = n
+\end{align*}
+
+\underline{Variations \normalfont{(Order matters, $k$ elements selected from $n$)}}
+\begin{align*}
+    &\text{Arrangements of $k$ distinct elements from $n$: }  V_{n,k} = \frac{n!}{(n-k)!} \\
+    &\text{Arrangements of $k$ elements from $n$, repetition allowed: } VR_{n,k} = n^k
+\end{align*}
+
+\underline{Combinations \normalfont{(Order does \textbf{not} matter, $k$ elements selected from $n$)}}
+\begin{align*}
+    &\text{Selection of $k$ distinct elements from $n$: } C_{n,k} = \binom{n}{k} = \frac{n!}{k!(n-k)!}\\
+    &\text{Selection of $k$ elements from $n$, repetition allowed: } CR_{n,k} = \binom{n+k-1}{k} 
+\end{align*}
+
+\underline{Binomial Properties}
+\begin{align*}
+    &\binom{n}{k} = \binom{n}{n-k}  \;\;\;\;\;\; \binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}    \;\;\;\;\;\; \sum_{i=k}^n \binom{i}{k} = \binom{n+1}{k+1}\\
+    &(a+b)^n = \sum_{k=0}^n \binom{n}{k} a^{n-k} b^k \;\;\;\;\;\;\sum_{k=0}^n \binom{n}{k} = 2^n    \;\;\;\;\;\; \sum_{j=0}^k \binom{m}{j} \binom{n}{k-j} = \binom{m+n}{k}\\
+    &n! \approx \sqrt{2\pi n} \left(\frac{n}{e}\right)^n \;\;\;\;\;\;\ln n! \approx n \ln n - n  \;\;\;\;\;\;   !n = n! \sum_{k=0}^n \frac{(-1)^k}{k!} \approx \frac{n!}{e}
+\end{align*}

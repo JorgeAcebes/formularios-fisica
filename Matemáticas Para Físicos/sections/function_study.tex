@@ -1,0 +1,36 @@
+\section*{Study of a function in $\mathbb{R}$ \normalfont{($f: \text{Dom}_f\subseteq \mathbb{R}\rightarrow \mathbb{R}, \;   x\mapsto f(x)$)}}
+\begin{align*}
+    &1. \text{ Find its domain (where the function is defined).}\\
+    &2. \text{ Analyse its simmetry.}\\
+    &3. \text{ Obtain the intersections with the axis: $x$-axis: $f(x)=0$, $y$-axis: $f(0)$.}\\
+    &4. \text{ Compute $f'(x)$ and find the critical points: $f'(x)=0$ or $\nexists \,f'(x)$.}\\
+    &5. \text{ Intervals of monotonicity: } f'(x)>0 \rightarrow\text{increasing} \; \; \; f'(x)<0 \rightarrow\text{decreasing}.\\
+    &6. \text{ Compute $f''(x)$ and find the inflection points: }f''(x)=0 \text{ or }\nexists \; f''(x).\\ 
+    &7. \text{ Intervals of concavity: }f''(x)>0 \rightarrow\text{convex } (\cup)\; \; \; f''(x<0) \rightarrow \text{concave } (\cap).\\
+    &8. \text{ Local maxima and minima (two methods): }\\
+    &
+    \left|
+    \begin{array}{llll}
+         &\hspace{-10pt} \bullet \text{ Analyse the monotonicity of $f(x)$ to the left and right of the critical point:} \vspace{1pt}\\
+         &f: \; \searrow  \text{ to } \nearrow \;  \Rightarrow \text{local minimum} \; \; \; f: \; \nearrow  \text{ to } \searrow \;  \Rightarrow \text{local maximum}\vspace{1pt}
+         \\
+         & \text{If both sides have the same monotonicity $\Rightarrow$ inflection point}\vspace{2pt}\\
+         &\hspace{-10pt} \bullet\text{ Evaluate $f''(x)$ at the critical point $x_0$:}\vspace{1pt}\\
+         &f''(x_0)>0 \Rightarrow \text{local minimum}\; \; \; f''(x_0)<0 \Rightarrow \text{local maximum}\vspace{1pt}\\
+         &\text{If } f'(x_0)=f''(x_0)=\cdots=f^{(k-1)}(x_0)=0, \; f^{(k)}(x_0)\neq 0:\vspace{1pt}\\
+         & \star \text{ If $k$ is even: same criteria as with }f''\\
+         &\star \text{ If $k$ is odd: } x_0 \Rightarrow \text{inflection point}
+    \end{array}
+    \right.\\
+    &9. \text{Asymptotes:}\\
+    &
+    \left|
+    \begin{array}{ll}
+         &  \hspace{-10pt}\bullet \text{ Vertical: Compute the left-hand and right-hand limits at discontinuities.}\vspace{1pt}\\
+         &  \hspace{-10pt}\bullet \text{ Horizontal: $\lim_{\scalebox{0.8}{$x \!\to \!\pm \infty$}} f(x)=L < \infty \Rightarrow$ horizontal asymptote $y=L$.}\vspace{1pt}\\
+         & \hspace{-10pt}\bullet \text{ Oblique: if $\lim_{\scalebox{0.8}{$x \!\to \!\pm \infty$}} f(x)=L =\pm \infty \Rightarrow$ compute $m=\lim_{\scalebox{0.8}{$x \!\to \!\infty$}} f(x)/x \Rightarrow$}\vspace{1pt}\\
+         &\text{if $m\neq 0$ compute $\lim_{\scalebox{0.8}{$x \!\to \!\pm \infty$}} n=[f(x)-mx] \Rightarrow$ oblique asymptote: }\!y\!=\!mx\!+\!n.
+    \end{array}
+    \right.\\
+    &\text{EXTRA. Tangent line at $x=a$: } y-b=m(x-a)\; \; \; \; b=f(a)\; \; \; m = f'(a)
+\end{align*}
