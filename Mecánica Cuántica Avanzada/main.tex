@@ -1,0 +1,497 @@
+% Minimal-spacing, three-column LaTeX preamble with fixed smallest font size
+\documentclass[8pt,a4paper,fleqn]{extarticle} % use smallest base font available
+
+% --- Geometry settings: minimal margins, landscape orientation ---
+\usepackage[landscape, top=0.1cm, left=0.1cm, right=0.1cm, bottom=0.3cm]{geometry}
+
+% --- No page numbering ---
+\pagestyle{empty}
+
+% --- Math and symbol packages with compact font style ---
+\usepackage{amssymb,amsmath,amsthm,amsfonts,bm,esint,mathtools}
+\usepackage{relsize}
+\usepackage{cancel}
+
+% --- Multicolumn layout setup ---
+\usepackage{multicol}
+\setlength{\columnsep}{0.1cm}
+\setlength{\multicolsep}{0pt}
+
+% --- Hyperlinks set up ---
+\usepackage{xcolor}
+\usepackage{hyperref}
+\definecolor{new_pink}{RGB}{255,20,147} 
+\hypersetup{colorlinks=true, linkcolor=red, urlcolor=new_pink}
+
+% --- Paragraph and line spacing adjustments ---
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\baselinestretch}{1}
+
+% --- Enforce fixed font metrics ---
+\makeatletter
+\renewcommand\normalsize{%
+  \@setfontsize\normalsize{7}{7}%
+  \abovedisplayskip 1pt plus 1pt minus 1pt%
+  \belowdisplayskip \abovedisplayskip%
+  \abovedisplayshortskip 1pt plus 1pt%
+  \belowdisplayshortskip 1pt plus 1pt minus 1pt}
+\makeatother
+
+
+\usepackage{xcolor}
+% --- Compact section headers ---
+\usepackage[compact]{titlesec} 
+\titlespacing{\section}{0pt}{1pt}{1pt}
+\titleformat{\section}{\normalfont\bfseries\color{magenta}}{}{0em}{}
+
+\usepackage{booktabs}
+\setlength{\columnseprule}{0.2pt} 
+\usepackage{lipsum}
+
+\begin{document}
+\begin{multicols}{3}
+\raggedright
+\scriptsize
+
+\section{FUNDAMENTOS Y EVOLUCIÓN}
+\textbf{Ec. Schrödinger:} $i\hbar \partial_t \Psi = \hat{H}\Psi$; $\hat{H} = \frac{\hat{p}^2}{2m} + V(\mathbf{r})$.\\
+\textbf{Continuidad:} $\rho = |\Psi|^2$; $\mathbf{j} = \frac{\hbar}{m} \text{Im}(\Psi^* \nabla \Psi)$. $\partial_t \rho + \nabla \cdot \mathbf{j} = 0$.\\
+\textbf{Ehrenfest:} $\frac{d}{dt}\langle \hat{A} \rangle = \frac{i}{\hbar} \langle [\hat{H}, \hat{A}] \rangle + \langle \partial_t \hat{A} \rangle$. $\langle \dot{\hat{p}} \rangle = -\langle \nabla V \rangle$.\\
+\textbf{Conmutadores:} $[x_i, p_j] = i\hbar \delta_{ij}$; $[L_i, L_j] = i\hbar \epsilon_{ijk} L_k$. $[\partial_{x_j}, \partial_{x_k}]\Psi = 0$\\
+$ [A, BC] = [A, B]C + B[A, C]. \;\; 
+[\hat{A},\hat{B}]\!=\!-[\hat{B},\hat{A}]\;\;[\hat{A},\hat{B}\!+\!\hat{C}]\!=\![\hat{A},\hat{B}]\!+\![\hat{A},\hat{C}]\;\;[\hat{A},\hat{A}]\!=\!
+[\hat{A},\hat{A}^n]\!=\!0 $\\
+$[\hat{A},[\hat{B},\hat{C}]]\!+\![\hat{B},[\hat{C},\hat{A}]]\!+\![\hat{C},[\hat{A},\hat{B}]]\!=\!0. \;\;\hat{A}\!=\!\hat{A}^\dagger\!\Rightarrow\!\lambda_{\hat{A}} \!\in\!\mathbb{R}\;\;\hat{A}\!=\!-\hat{A}^\dagger\!\Rightarrow\!\lambda_{\hat{A}}\!\in\!i\mathbb{R}$\\
+\textbf{BCH:} $e^{\hat{X}}e^{\hat{Y}} = e^{\hat{X}+\hat{Y} + \frac{1}{2}[\hat{X},\hat{Y}] + \dots}$. $e^{\hat{A}}\hat{B}e^{-\hat{A}} = \hat{B} + [\hat{A},\hat{B}] + \frac{1}{2!}[\hat{A},[\hat{A},\hat{B}]]$.\\
+\textbf{Pauli:} $\sigma_1 = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \sigma_2 = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}, \sigma_3 = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$. $\lambda = \pm 1, \text{tr}=0, \det=-1$.\\
+Autovectores $\sigma_1: \frac{1}{\sqrt{2}}\binom{1}{\pm 1}$. $\sigma_2: \frac{1}{\sqrt{2}}\binom{1}{\pm i}$. $\sigma_3: \binom{1}{0}, \binom{0}{1}$.\\
+Spin $\vec{n}$: $\hat{S}_{\vec{n}} = \frac{\hbar}{2}\begin{pmatrix} n_3 & n_1-in_2 \\ n_1+in_2 & -n_3 \end{pmatrix}$. $|\uparrow\rangle_{\vec{n}} = \cos\frac{\theta}{2}|\uparrow\rangle_z + e^{i\phi}\sin\frac{\theta}{2}|\downarrow\rangle_z$.
+
+\section{TAYLOR Y FUNCIONES ESPECIALES}
+$\bullet f(a+h, b+k) \approx f(a, b) + \left( h \frac{\partial f}{\partial x} + k \frac{\partial f}{\partial y} \right) + \frac{1}{2!} \left( h^2 \frac{\partial^2 f}{\partial x^2} + 2hk \frac{\partial^2 f}{\partial x \partial y} + k^2 \frac{\partial^2 f}{\partial y^2} \right)$ [Multivar]\\
+$\bullet$ $e^x \approx 1 + x + x^2/2$.  $\bullet$ $\sin x \approx x - x^3/6$. $\bullet$ $\cos x \approx 1- x^2/2$  $\bullet$ $\tan x \approx x + x^3/3$.\\
+$\bullet$ $\ln(1+x) \approx x - x^2/2$. $\bullet$ $(1+x)^n \approx 1 + nx + \frac{n(n-1)}{2}x^2$ $\bullet$ $\sqrt{x^2-a^2}\xrightarrow{x\xrightarrow{}\infty}  x$.\\
+$\bullet$ $\sinh x \approx x + x^3/6$. $\bullet$ $\cosh x \approx 1 + x^2/2$. $\bullet$ $\tanh x \approx x - x^3/3$.\\
+\textbf{Bessel Esf.:} $[\frac{d^2}{d\rho^2} - \frac{l(l+1)}{\rho^2}+1] (\rho \tilde{R}_l (\rho)) = 0 \hspace{-10pt} \begin{array}{cc}
+     & \rho = kr \\
+     &  R_l (r)=\tilde{R}_l(kr)
+\end{array} 
+$ $j_0 = \frac{\sin\rho}{\rho}$; $n_0 = -\frac{\cos\rho}{\rho}$. \\
+$j_l(\rho) \xrightarrow{\rho \to 0} \frac{\rho^l}{(2l+1)!!}$ $n_l(\rho) \xrightarrow{\rho \to 0} -\frac{(2l-1)!!}{\rho^{l+1}}$ \;\;\\ $j_l(\rho) \xrightarrow{\rho \to \infty} \frac{1}{\rho} \sin\left(\rho - \frac{l\pi}{2}\right)$
+$n_l(\rho) \xrightarrow{\rho \to \infty} -\frac{1}{\rho} \cos\left(\rho - \frac{l\pi}{2}\right)$ \\
+\textbf{Legendre:} $P_0=1, P_1=x, P_2=\frac{1}{2}(3x^2-1)$. $\int_{-1}^1 P_l P_{l'} = \frac{2}{2l+1}\delta_{ll'}$.\\
+\textbf{Relación de Cierre:} $\sum_n |n\rangle\langle n| = \mathbb{I}$. $\int |x\rangle\langle x| dx = \mathbb{I}$.
+
+
+\section{ÁLGEBRA DE OPERADORES}
+\textbf{Kets/Bras:} $\langle \phi | \alpha \Psi_1 + \beta \Psi_2 \rangle = \alpha \langle \phi | \Psi_1 \rangle + \beta \langle \phi | \Psi_2 \rangle$. (Lineal 2ª entrada).\\
+\textbf{Cambio Base:} $P_{B \to B'} = (\langle f_i | e_j \rangle)$. $B'|\Psi\rangle = P B|\Psi\rangle$. $\hat{A}' = P \hat{A} P^\dagger$.\\
+\textbf{Unitarios:} $\hat{U}^\dagger\hat{U} = \hat{U}\hat{U}^\dagger = \mathbb{I}$ \quad \textbf{Hermitianos:} $\hat{A} = \hat{A}^\dagger$
+\quad \textbf{Sist. inv. bajo op.: } $[\hat{H}, \hat{\mathbb{O}}] = 0$
+\\
+\textbf{Antilineales:} $\hat{T}(\alpha\Psi) = \alpha^*\hat{T}\Psi$. $\langle \hat{T}\Phi | \hat{T}\Psi \rangle = \langle \Phi | \Psi \rangle^* = \langle \Psi | \Phi \rangle$. (e.g. Inversión temporal).\\
+\textbf{Prod. Tensorial:} $(\hat{A} \otimes \hat{B})|x,y\rangle = \hat{A}|x\rangle \otimes \hat{B}|y\rangle$. $\text{tr}(\hat{A}\otimes\hat{B}) = \text{tr}(\hat{A})\text{tr}(\hat{B})$.\\
+\textbf{Oscilador:} $\hat{a} = \sqrt{\frac{m\omega}{2\hbar}}(\hat{x} + \frac{i}{m\omega}\hat{p})$; $[\hat{a}, \hat{a}^\dagger] = 1$. $\hat{H} = \hbar\omega(\hat{N} + \frac{1}{2})$.\\
+$\hat{a}|n\rangle = \sqrt{n}|n-1\rangle$; $\hat{a}^\dagger|n\rangle = \sqrt{n+1}|n+1\rangle$. $\langle x | n \rangle = \Psi_n(x) \sim e^{-x^2/2} H_n(x)$.
+\section{MOMENTO ANGULAR Y SPIN}
+\textbf{Escalera:} $L_\pm |l,m\rangle = \hbar \sqrt{l(l+1)-m(m\pm 1)} |l,m\pm 1\rangle$.\\
+\textbf{Spin 1/2:} $\mathbf{S} = \frac{\hbar}{2} \bm{\sigma}$. $[\sigma_i, \sigma_j] = 2i \epsilon_{ijk} \sigma_k$. $\{\sigma_i, \sigma_j\} = 2\delta_{ij}$.\\
+$(\bm{\sigma}\cdot\mathbf{A})(\bm{\sigma}\cdot\mathbf{B}) = \mathbf{A}\cdot\mathbf{B} + i\bm{\sigma}\cdot(\mathbf{A}\times\mathbf{B})$.\\
+\textbf{Adición $\mathbf{J} = \mathbf{J}_1 + \mathbf{J}_2$:} $|j_1-j_2| \le J \le j_1+j_2$. $M = m_1+m_2$.\\
+\textbf{Clebsch-Gordan:} $|J,M\rangle = \sum_{m_1,m_2} \langle j_1 m_1 j_2 m_2 | J M \rangle |j_1 m_1\rangle |j_2 m_2\rangle$.
+\section{ANSATZS}
+$\psi (x) = \mathcal{N} e^{-\alpha x^2}$ Gaussiana (O.A.). $\mathcal{N} = \sqrt[4]{2\alpha/\pi}\; \;\;\; \langle T \rangle = \alpha \hbar^2 /2m$\\
+$\psi(x) = \mathcal{N} e^{-\alpha |x|}$ Decae más lento que gaussiana.  $\mathcal{N} = \sqrt{\alpha}\;\;\;\; \langle T \rangle = \alpha^2 \hbar^2 /2m$
+\\
+$\Psi (\mathbf{x}_1, \mathbf{x}_2) = \psi_\alpha (\mathbf{x}_1) \psi_\alpha (\mathbf{x}_2)\; \;\;\; \psi(\mathbf{x})=\sqrt{\mathcal{N}}\, e^{-\alpha |\mathbf{x}| /a_0}\;  \Rightarrow \; \Psi(\mathbf{x}_1, \mathbf{x}_2) = \mathcal{N} e^{-\alpha(r_1+r_2)/a_0}$\\
+$\mathcal{N} =\alpha^3/a_0^3 \pi$
+\\
+$\psi (\mathbf{x}) = r^n e^{-\alpha r}$ Coulomb \;\;\;\;\,\; $\partial_x|x| = \mathrm{sgn}(x)\;\;\;\;\;\; \partial_x ^2|x| = 2\delta(x)$
+\\
+$\psi (x)= \mathcal{N}\cdot\begin{cases}
+    \cos(\pi x / 2\alpha):&  |x| < \alpha\\
+    0: & |x| > \alpha
+\end{cases}$ Partícula pozo pot. $\infty$, ancho $L = 2\alpha$ $\mathcal{N} = \frac{1}{\sqrt{\alpha}}$\\
+$\psi (x)= \mathcal{N}\cdot\begin{cases}
+    \alpha^2 - x^2:&  |x| < \alpha\\
+    0: & |x| > \alpha
+\end{cases}$ Partícula confinada: $\psi (\pm \alpha) = 0$ \; $\mathcal{N} = \sqrt{\frac{15}{16\alpha^5}}$\\
+$\psi(\mathbf{x})_j = e^{- \alpha r_j/a_0} 
+$ Función de onda del $e^-_j$ del átomo $\Rightarrow \Psi = \Pi_j \,\psi_j$
+
+\section{PERTURBACIONES Y MÉTODO VARIACIONAL \normalfont{$E(\alpha) \rightarrow \partial_\alpha E = 0 \Leftrightarrow  \alpha = \alpha^*$}}
+\textbf{Átomo Hidrogenoide (CGS):} $H = \sum_{i=1} \left( -\frac{\hbar^2}{2m_e}\nabla_i^2 - \frac{Z e^2}{r_i} \right) + \frac{e^2}{|\mathbf{r}_1 - \mathbf{r}_2|} =  H_0 + H'$\\
+\textbf{Perturbaciones:} $\Delta E^{(1)} = \langle \Psi_0^{(Z)} | H' | \Psi_0^{(Z)} \rangle \;\;\;\; E^{(1)} = -Ry\; Z^2 \sum_i(1/n_i^2) + \Delta E^{(1)}$  \\
+\textbf{Rayleigh-Ritz:} $E(\alpha) = \frac{\langle \Psi_\alpha | H | \Psi_\alpha \rangle}{\langle \Psi_\alpha | \Psi_\alpha \rangle} \ge E_0$. Error en $E$ de orden $\delta^2$ si error en $\Psi$ es $\delta$.\\
+\textbf{Teorema Virial:} $2\langle T \rangle = \langle \mathbf{r} \cdot \nabla V \rangle$. Si $V \propto r^n \Rightarrow 2\langle T \rangle = n \langle V \rangle$.
+$V\propto r^{-1} \Rightarrow \langle H\rangle = \langle V\rangle/2$\\
+\textbf{Variacional:} Ansatz $\Psi_\alpha \;\;\;\;\;  E(\alpha) = \langle \Psi_\alpha | \hat{H}(Z) | \Psi_\alpha \rangle\;\;\;\;     \frac{\partial E(\alpha)}{\partial \alpha} = 0 \implies \alpha^*$ \\
+\textbf{Estados Excitados:} Proponer $\Psi_\perp$ tal que $\langle \Psi_{trial} | \Psi_0 \rangle = 0$.
+\section{APROXIMACIÓN WKB (SEMI-CLÁSICA)}
+\textbf{Fase:} $\Psi(x) = e^{iW(x)/\hbar}$. Si $V(x)$ lento $\implies \hbar |p'| \ll p^2$.\\
+\textbf{Solución:} $\Psi(x) \approx \frac{A}{\sqrt{p(x)}} \exp(\pm \frac{i}{\hbar} \int p(x') dx')$. $p(x) = \sqrt{2m(E-V)}$.\\
+\textbf{Matching (Puntos de Retorno $x_0$):} $V(x) \approx E + V'(x_0)(x-x_0)$.\\
+- Punto de retorno $x_0:$ aquel donde $E= V(x_0)$\\
+$\bullet$ En zona prohibida ($E < V$): $\Psi \sim \frac{1}{2\sqrt{|p|}} \exp(-\frac{1}{\hbar} \int_{x_0}^x |p| dx')$.\\
+$\bullet$ En zona permitida ($E > V$): $\Psi \sim \frac{1}{\sqrt{p}} \cos(\frac{1}{\hbar} \int_{x_0}^x p dx' - \frac{\pi}{4})$.\\
+\textbf{Cuantización B-S:} $\int_{x_1}^{x_2} p(x) dx = (n + \frac{1}{2})\pi\hbar$. ($n=0, 1, \dots$).\\
+\textbf{Efecto Túnel (Gamow):} $T \approx e^{-2G}$; $G = \frac{1}{\hbar} \int_{a}^b \sqrt{2m(V(x)-E)} dx$.\\
+Desintegración $\alpha$: $\lambda = \nu T \approx \frac{v}{2R} e^{-2G}$. $G \propto \frac{Z}{\sqrt{E}}$ (Ley Geiger-Nuttall).
+
+\section{SCATTERING EN 1D \normalfont{$k = \sqrt{2mE/\hbar^2} \leftrightarrow E= \hbar^2k^2/2m$}}
+\textbf{Canales Incidientes:}\\
+$\bullet$ \textbf{R (Right-moving):} Izda $\to$ Dcha. $\Psi_R = e^{ikx} + r e^{-ikx} (x \to -\infty)$; $t e^{ikx} (x \to \infty)$.\\
+$\bullet$ \textbf{L (Left-moving):} Dcha $\to$ Izda. $\Psi_L = t' e^{-ikx} (x \to -\infty)$; $e^{-ikx} + r' e^{ikx} (x \to \infty)$.\\
+\textbf{Unitariedad:} $t=t'$, $|r|^2+|t|^2=R^2+=1$, $r/t = -(r'/t')^*$. Si $V$ simétrico: $r=r'$.\\
+\textbf{Base Paridad ($V$ par):} $\Psi_\pm(x) = \Psi_R(x) \pm \Psi_R(-x)$.\\
+$\Psi_\pm \xrightarrow{x \to \infty} e^{-ikx} \pm S_{\pm\pm} e^{ikx}$. $S_{++} = t+r$, $S_{--} = t-r$. ($|S_{ii}|=1$).\\
+\textbf{Estados Ligados:} Polos de $S$ en $k = i\lambda$ ($\lambda>0$). $S_{++}^{-1}(i\lambda)=0$ o $S_{--}^{-1}(i\lambda)=0$.\\
+\textbf{Resonancias:} Polo en $k = k_0 - i\gamma$. $E = E_0 - i\Gamma/2$. $\Gamma \approx \frac{2\hbar^2}{m}k_0\gamma.$ $\tau = \hbar / \Gamma$.\\
+Fase $\delta(E)$: $\delta_{res} = \arctan \frac{\Gamma/2}{E_0-E}$. En $E_0$, $\delta = \pi/2$ y $\sigma$ es máxima.\\
+1. Resuelve ec. Schröd. 2. Aplica matching 3. Halla coefs. $R, T$
+
+\section{SCATTERING 3D con $V(r)$: ONDAS PARCIALES (O.P.)}
+\textbf{Condición de Regularidad:} En el origen ($r=0$): $u_l(0) = 0$\\
+\textbf{Solución. asintótica:} $\Psi(\mathbf{r}) \xrightarrow{r\to\infty} e^{ikz} + f(\theta) \frac{e^{ikr}}{r}$.\\
+\textbf{Ec. Radial:} $u_l(r) := r R_l(r)$:
+$[\frac{d^2}{dr^2} +  k^2 - \frac{l(l+1)}{r^2} - U(r) ] u_l = 0$ con $U(r) = \frac{2mV(r)}{\hbar^2}$.\\
+\textbf{Expansión O.P.:} $\Psi(r,\theta) = \sum_{l=0}^\infty R_l(r) P_l(\cos\theta)$. \\
+% \textbf{Solución Exterior ($V=0$):} $u_l(r) = r C_l [ \cos \delta_l j_l(kr) - \sin \delta_l n_l(kr) ]$.\\
+El efecto del potencial es introducir un desfase respecto a la solución libre.
+    \\ \textbf{Solución Libre ($U=0$):} $R_l(r) \propto j_l(kr) \xrightarrow{r \to \infty} \frac{\sin(kr - l\pi/2)}{kr}$.
+    \\ \textbf{Con Potencial ($U \neq 0$):} $R_l(r) \xrightarrow{r \to \infty} A_l \frac{\sin(kr - l\pi/2 + \delta_l)}{kr}$.\\
+Física del desfase: $\delta_l > 0 \implies$ Atractivo; $\delta_l < 0 \implies$ Repulsivo.\\
+\textbf{Amplitud de dispersión:} $f(\theta) = \sum_{l=0}^\infty \frac{2l+1}{k} e^{i\delta_l} \sin\delta_l P_l(\cos\theta)$.\\
+\textbf{Sección Eficaz Diferencial:} $\frac{d\sigma}{d\Omega} = |f(\theta)|^2$.
+    \\ \textbf{Sección Eficaz Total:} $\sigma_{tot} =\int \frac{d\sigma}{d\Omega}d\Omega =  \frac{4\pi}{k^2} \sum_{l=0}^\infty (2l+1) \sin^2 \delta_l$.
+    \\ \textbf{Teorema Óptico:} $\sigma_{tot} = \frac{4\pi}{k} \Im f(0)$.
+    \\ \textbf{Matching:} en corte $r=a$, igualar log-derivada interna$\gamma_l = \frac{u_l'(a)}{u_l(a)}$ ($' \equiv$ deriv): $ \tan \delta_l = \frac{k j'_l(ka) - \gamma_l j_l(ka)}{k n'_l(ka) - \gamma_l n_l(ka)}  = \tan \delta_l = \frac{\frac{k j'_l(ka)}{\gamma_l} - j_l(ka)}{\frac{k n'_l(ka)}{\gamma_l} - n_l(ka)} $\\
+\textcolor{violet}{\textbf{REGÍMENES SEGÚN ENERGÍA (Aproximaciones) + CASOS PARTICULARES}}\\
+     \textbf{Baja Energía ($ka \ll 1$):} $\delta_l \approx k^{2l+1}$. Domina $l=0$ (Onda S). $f(0)= -a_s$
+    \\ \textbf{Longitud de Dispersión ($a_s$):} $a_s = - \frac{d\delta_0}{dk}\Big{|}_{k=0} \implies \sigma_{tot} \approx 4\pi a_s^2$.
+    \\ \textbf{Alta Energía ($ka \gg 1$):} $\sigma_{tot} \approx 2\pi a^2$ \;Aproximaciones alta energía:\\ $\sum_{l=0}^{ka \sim \infty} h(l)\sin^2{(l\pi/2 - ka)}= \langle \sin^2 (...) \rangle\sum_{l=0}^{ka \sim \infty} h(l)\;\;\;\;\,\; \langle\sin^2\rangle=1/2$\\
+    $\textbf{Sumatorios:} \sum_{i=1}^N C = NC$\qquad $\sum_{i=0}^N C = (N+1)C$ \qquad   $\sum_{i=0}^N = \sum_{i=1}^N = \frac{N(N+1)}{2}$
+    \\\textbf{Esfera Dura ($V=\infty, r<a$):} Condición: $u_l(a) = 0 \implies \gamma_l \to \infty$.
+        \\ Fase: $\tan \delta_l = \frac{j_l(ka)}{n_l(ka)}$.  Onda S ($l=0$): $\delta_0 = -ka \implies \sigma_{tot} \xrightarrow{k\to 0} 4\pi a^2$.\\
+\textcolor{violet}{\textbf{POTENCIALES CONTINUOS (SIN CORTE $a$)}}\\
+\textbf{Condición de Regularidad:} En el origen ($r=0$): $u_l(0) = 0$\\
+\textbf{Extracción de $\delta_l$ por Comportamiento Asintótico ($r \to \infty$):}
+Se compara la solución global $u_l(r)$ con la forma estándar (escrita a continuación, de dos formas):\\
+\textbf{Base Trigonométrica:} $u_l(r) \xrightarrow{r \to \infty} A \sin(kr - \frac{l\pi}{2}) + B \cos(kr - \frac{l\pi}{2}) \Rightarrow \tan \delta_l = \frac{B}{A}$\\
+\textbf{Base Exponencial:} $u_l(r) \xrightarrow{r \to \infty} C e^{ikr} + D e^{-ikr} e^{2i(\delta_l - l\pi/2)} = -\frac{C}{D}$\\
+\textbf{Adimensionalización:} $V(r)$ depende de parámetro $r_0$, definir: $x = \frac{r}{r_0}, \quad \kappa = k r_0, \quad \frac{d^2}{dr^2} = \frac{1}{r_0^2} \frac{d^2}{dx^2}$. El desfase es invariante: $\delta_l(k) = \delta_l(\kappa)$.\\
+\textbf{Onda S ($l=0$):} $\sigma_s = \frac{4\pi}{k^2} \sin^2 \delta_0 = \frac{4\pi}{k^2} \frac{1}{1 + \cot^2 \delta_0}$ \textbf{Amplitud:} $f_0 = \frac{1}{k(\cot \delta_0 - i)}$.
+
+
+
+\textcolor{violet}{\textbf{ESTADOS LIGADOS:}}\\
+$E = -\frac{\hbar^2 \lambda^2}{2m} \leq 0$\;\;\; $k=i\lambda$, $\lambda \in \mathbb{R}^+$. Comportamiento asintótico: $u_l(r) \sim e^{ikr} \to e^{-\lambda r}$\\
+\textbf{Matching:} Para onda S ($l=0$), continuidad log-deriv en $r=a$: $\gamma_0 = \left. \frac{u_0'(r)}{u_0(r)} \right|_{r=a} = -\lambda$\\
+\textbf{Matching ($l > 0$):} Se iguala con log-deriv de funs Hankel esfs: $\gamma_l = \left. \frac{d}{dr} \ln [r h_l^{(1)}(i\kappa r)] \right|_{r=a}$
+\\
+\textbf{Polos de la Matriz S:} estados ligados $\Leftrightarrow$ polos de $S_l(k)$ en eje $\Im$ positivo del plano complejo $k$: $S_l(k) = e^{2i\delta_l(k)} = \frac{\cot \delta_l + i}{\cot \delta_l - i}$ $\Rightarrow \cot \delta_l(k) = 1/\tan \delta_l (k) = i \Leftrightarrow e^{2i\delta_l} \to \infty$\\
+
+\textcolor{violet}{\textbf{RESONANCIAS EN SCATTERING (ESTADOS METAESTABLE)}}\\
+$k_{res} = k_0 - i\gamma \quad \text{con } k_0 > 0, \gamma > 0$ \,\;\;  $E = E_R - i\frac{\Gamma}{2}$\\
+Cuando sección eficaz parcial $\sigma_l$ alcanza el límite unitario (máximo teórico):\\
+\textbf{Fase:} $\delta_l(E_R) = (n + 1/2)\pi \implies \sin^2 \delta_l = 1$.\\
+\textbf{Sección Eficaz:} $\sigma_l^{max} = \frac{4\pi}{k^2}(2l+1)$.
+\\\textbf{Matching:} El denominador de $\tan \delta_l$ se anula: $k n'_l(ka) - \gamma_l n_l(ka) = 0$.\\
+\textbf{Aprox Breit-Wigner:}\\
+En vecindad de resonancia $E_R$ con anchura $\Gamma$, sección eficaz $\sigma(E)$ sigue perfil de BW:\\
+$\sigma(E) \simeq \frac{2\pi\hbar^2(2l+1)}{mE} \frac{\Gamma^2}{4(E-E_R)^2 + \Gamma^2}$ \\
+En el punto de resonancia, el desfase es $\delta_0(E_R) = \frac{\pi}{2}$ y su derivada es $\left.\frac{d\delta}{dE}\right|_{E_0} = -\frac{2}{\Gamma} < 0$.\\
+\textbf{Retraso Temporal (Wigner):} $\Delta t = 2\hbar \frac{d\delta_l}{dE}$. En resonancia, $\Delta t$ es máximo (la partícula queda atrapada en un estado metaestable).\\
+\textbf{Vida Media:} $\tau = \frac{\hbar}{\Gamma}$. Tiempo característico de desintegración del estado cuasiligado.
+
+\section{BORN Y LIPPMANN-SCHWINGER} 
+\textbf{LS:} $|\Psi^{(+)}\rangle = |\phi\rangle + \hat{G}_0^{(+)} \hat{V} |\Psi^{(+)}\rangle$. $\hat{G}_0^{(+)} = (E - H_0 + i\epsilon)^{-1} = -\frac{2m}{\hbar^2}\frac{e^{ik|\mathbf{x-x'}|}}{4\pi |\mathbf{x-x'}|}$. Equiv:\\
+\scalebox{0.95}{$\psi(\mathbf{r}) \!=\! \psi^{(0)}(\mathbf{r}) + \int G_0^{(+)}(\mathbf{r}, \mathbf{r}') V(\mathbf{r}') \psi(\mathbf{r}') d^3r' \rightarrow\psi(\mathbf{r})\! =\!e^{i\mathbf{k·r}} \!-\!\frac{m}{2\pi\hbar^2} \int \frac{e^{ik|\mathbf{r}-\mathbf{r}'|}}{|\mathbf{r}-\mathbf{r}'|} V(\mathbf{r}') \psi(\mathbf{r}) d^3r'$}\\
+$f(k,\theta,\phi)= -\frac{m}{2\pi \hbar ^2 }\int d^3r \, e^{-i \mathbf{k r}} \,\, V(\mathbf{r})\psi(\mathbf{r})$
+\\
+\textbf{1ª Born:} $\psi(\mathbf{r})\! =\!e^{i\mathbf{k·r}} \!-\!\frac{m}{2\pi\hbar^2} \int \frac{e^{ik|\mathbf{r}-\mathbf{r}'|}}{|\mathbf{r}-\mathbf{r}'|} V(\mathbf{r}') e^{i\mathbf{k} \cdot \mathbf{r}'} d^3r'$ $f(\theta) \approx -\frac{m}{2\pi\hbar^2} \int e^{i\mathbf{q}\cdot\mathbf{r}'} V(r') d^3r'$ \;\;\; \, $[ \,q = |\mathbf{k}_i - \mathbf{k}_f| = 2k \sin(\theta_{\text{scatt}}/2)$ Solo disp. elástic!\,]\\
+
+Si sist. parts: $m \mapsto \mu = \frac{m_1 \cdot m_2}{m_1+m_2}$. Baja eneregía: $f(0)=-\frac
+{m}{2\pi \hbar^2}\int V(r')d^3r'=-a_s=\alpha_0$\\
+$\bullet$ \textbf{Yukawa:} $V_0 \frac{e^{-\alpha r}}{r} \implies f_B = \frac{-2mV_0/\hbar^2}{q^2 + \alpha^2}$.\\
+$\bullet$ \textbf{Coulomb:} $\alpha \to 0 \implies \frac{d\sigma}{d\Omega} = \left(\frac{Ze^2}{4E}\right)^2 \frac{1}{\sin^4(\theta/2)}$ (Rutherford).\\
+\textbf{Validez Born:} $V_0 \ll \frac{\hbar^2}{ma^2}$ (baja E) o $V_0 \ll \frac{\hbar^2 k}{ma}$ (alta E) --- A alta E, $l_{\max}= ka$ \\
+\textbf{Validez Born:} $|\psi^{(1)}(0)/\psi(0)|\ll 1$, $\psi^{(0)}(\mathbf{r}) = e^{i \mathbf{kr}}$\\
+1. Busca $f(\theta, \phi), \tfrac{d\sigma}{d\Omega} = |f(\theta,\phi)^2|$. 2. Resuelve $[-\tfrac{\hbar^2}{2m}\nabla^2 + V(r)-E]\psi =0$ \\3. Aplica matching 4. Halla $\sigma_{tot}$\\
+Para $\hat{V} = \lambda |\xi\rangle \langle\xi|$, definimos $C = \langle\xi|\psi^{(+)}\rangle$: $|\psi^{(+)}\rangle = |\phi\rangle + \lambda \hat{G}_0^{(+)} |\xi\rangle C \implies$ $ C = \langle\xi|\phi\rangle + \lambda \langle\xi|\hat{G}_0^{(+)}|\xi\rangle C \implies C = \frac{\langle\xi|\phi\rangle}{1 - \lambda \langle\xi|\hat{G}_0^{(+)}|\xi\rangle}$. Amplitud Transición: $T(\mathbf{k}', \mathbf{k})= $ \\$= \langle\phi_{\mathbf{k}'}|\hat{V}|\psi_{\mathbf{k}}^{(+)}\rangle = \lambda \langle\phi_{\mathbf{k}'}|\xi\rangle C = \frac{\lambda \langle\phi_{\mathbf{k}'}|\xi\rangle \langle\xi|\phi_{\mathbf{k}}\rangle}{1 - \lambda \langle\xi|\hat{G}_0^{(+)}|\xi\rangle}=$$T(\mathbf{k}', \mathbf{k}) = \frac{\lambda \tilde{\xi}(\mathbf{k}') \tilde{\xi}^*(\mathbf{k})}{1 - \lambda \int d^3q \frac{|\tilde{\xi}(\mathbf{q})|^2}{E_k - \frac{\hbar^2 q^2}{2m} + i\epsilon}}$\\
+\textbf{COMPTON (Dispersión inelastic):} $\vec{q}\cdot\vec{q} = q'^2 = k^2+k'^2 -2kk'\cos\theta_{\text{scatt}}$ (en CM)\\
+$ck= \frac{\hbar q'^2}{2m} + ck$. Sust, divide entre $\tfrac{1}{ckk'}$, para baja energía, $k/k' \approx k'/k \approx 1$\;\;\; $k=2\pi /\lambda$
+
+
+
+\section{CUADRIMOMENTOS Y RELATIVIDAD}
+\textbf{Métrica:} $g_{\mu\nu} = \text{diag}(-1, 1, 1, 1)$. $p \cdot q = -p^0 q^0 + \mathbf{p} \cdot \mathbf{q}$.\\
+\textbf{Def:} $p^\mu = (E/c, \mathbf{p})$, $p_\mu = (-E/c, \mathbf{p})$. ($c=1 \implies p^\mu = (E, \mathbf{p})$).\\
+\textbf{On-shell:} $p^\mu p_\mu = -m^2 c^2 \implies E^2 = p^2c^2 + m^2c^4$.\\
+\textbf{Conservación:} $\sum p_{in}^\mu = \sum p_{out}^\mu$.
+$\bullet$ $E_{in} = E_{out}$  $\bullet$ $\mathbf{p}_{in} = \mathbf{p}_{out}$\\
+\textbf{Identidad Colisiones:} $(p_1 - p_1')^2 = (p_2' - p_2)^2$.\\
+\textbf{Ángulo Scattering:} $\cos \theta = \frac{p_1 \cdot p_1' + E_1 E_1'}{|\mathbf{p}_1||\mathbf{p}_1'|}$.\\
+\textbf{Estrategia:} Para umbrales, usar $s = (\sum p_i)^2$. En C.M. $\mathbf{p}_{tot}=0$, $s = -E_{CM}^2$.
+
+
+\section{ELECTRODINÁMICA Y ACOPLAMIENTO MÍNIMO (CGS)}
+\textbf{Unidades CGS:} $e^2/4\pi\epsilon_0 \to e_{cgs}^2$. $[e] = (E \cdot L)^{1/2}$. $1\text{ statV} = 300\text{ V}$.\\
+\textbf{Maxwell:} $\nabla \cdot \vec{E} = 4\pi\rho$, $\nabla \cdot \vec{B} = 0$, $\nabla \times \vec{E} + \frac{1}{c}\dot{\vec{B}} = 0$, $\nabla \times \vec{B} - \frac{1}{c}\dot{\vec{E}} = \frac{4\pi}{c}\vec{j}$.\\
+\textbf{Potenciales:} $\vec{B} = \nabla \times \vec{A}$, $\vec{E} = -\nabla \varphi - \frac{1}{c}\dot{\vec{A}}$.\\
+\textbf{Invariancia Gauge:} $\{\vec{A}' = \vec{A} + \nabla \chi$, $\varphi' = \varphi - \frac{1}{c}\dot{\chi} \} \Leftrightarrow A_\mu ' = A_\mu + \partial_\mu \chi$.\\
+\textbf{Derivada covariante:}$D_\mu = \partial_\mu + \frac{iq}{\hbar c} A_\mu$.
+\\
+\textbf{Gauges Comunes:} $\bullet$ \textbf{Lorentz:} $\nabla \cdot \vec{A} + \frac{1}{c}\dot{\varphi} = 0$. $\bullet$ \textbf{Coulomb:} $\nabla \cdot \vec{A} = 0$.\\
+\textbf{Euler-Lagrange:}$\frac{\partial \mathcal{L}}{\partial\mathbf{r}} - \frac{d}{dt} \left(\frac{\partial \mathcal{L}}{\partial \mathbf{\dot{r}}}\right) = 0$\\
+\textbf{Dependencias:} $\psi=\psi(\mathbf{r}, t)\; \;\, \mathbf{A} = \mathbf{A}(\mathbf{r}, t)$ \\
+\textbf{Partícula Cargada:} $\mathcal{L} = \frac{1}{2}m\vec{v}^2 + \frac{q}{c}\vec{A}\cdot\vec{v} - q\varphi$. Momento canónico: $\vec{p} = m\vec{v} + \frac{q}{c}\vec{A}$.\\
+\textbf{Hamiltoniano (acop. mín) con Spin = 0, $\vec{B} \equiv cte$:} $\hat{H} = \frac{1}{2m}(\hat{\vec{p}} - \frac{q}{c}\vec{A})^2 + q\varphi$. $\hat{\vec{\pi}} = \hat{\vec{p}} - \frac{q}{c}\vec{A}$ (momento cinético). 
+\textit{Nota: para 1! partícula + no cosas raras, considera $\varphi =0$} \\
+\textbf{Velocidad cinética:} $\hat{\vec{\mathrm{v}}} = \hat{\vec{\pi}}/m$\;\;\; $[\hat{\mathrm{v}}_k, \hat{\mathrm{v}}_l] = \frac{i\hbar q}{m^2 c} (\partial_k A_l -\partial_l A_k) = \frac{i\hbar q}{m^2 c} \sum_n^3 \varepsilon_{kln} B_n $
+\\
+Para partícula spín 0, elección del potencial vector $\vec{A}$ define las simetrías de fun onda:
+$\rightarrow$\textbf{Gauge de Landau:} $\vec{A} = (-By, 0, 0)$ o $\vec{A} = (0, Bx, 0)$.
+\\
+ \textbf{-Simetría:} Rompe la simetría rotacional pero preserva la traslación en una dirección\\
+ \textbf{-Efecto:} Reduce el Hamiltoniano 2D a un Oscilador Armónico 1D desplazado.\\
+ \textbf{-Cuándo usar:} Geometrías rectangulares, Efecto Hall Cuántico, o cuando interesa estudiar la degeneración infinita de los niveles mediante el centro de la órbita $y_0$.\\
+$\rightarrow$\textbf{Gauge Simétrico:} $\vec{A} = \frac{1}{2}\vec{B} \times \vec{r} = (-\frac{1}{2}By, \frac{1}{2}Bx, 0)$.\\
+\textbf{-Simetría:} Preserva la simetría rotacional alrededor de $\hat{z}$.\\
+\textbf{-Efecto:} El Hamiltoniano conmuta con $\hat{L}_z$. Las soluciones se expresan en coordenadas polares mediante polinomios de Laguerre.\\
+\textbf{-Cuándo usar:} Geometrías circulares, cilindros, puntos cuánticos, o cuando el momento angular es un número cuántico relevante.
+\\
+\textbf{Conmutación:}$[ \mathbf{r}_k, \hat{\pi}_l] = i \hbar \delta_{kl}$\;\; \; 
+$[p_i, F(\mathbf{r})] =-i\hbar \frac{\partial F(\mathbf{r})}{\partial r_i} $ \;\,\;\; $[x_i, F(\mathbf{p})] =i\hbar \frac{\partial F(\mathbf{p})}{\partial p_i}$
+\\\textbf{Acop. mín tens.}: $(i\hbar D_0 - \frac{1}{2m} D_i D_i) \Psi = 0$
+\textbf{Inv. Gauge Cuántica:} $\Psi' = \exp(i \frac{q}{\hbar c} \chi)\Psi$.\\
+\textbf{Hamiltoniano (acop. mín) con Spin $\neq$ 0, $\vec{B} \equiv cte$:} $\hat{H} = \frac{1}{2m}(\hat{\vec{p}} - \frac{q}{c}\vec{A})^2 - \frac{\mu}{s\hbar}\hat{\vec{S}} \cdot\hat{\vec{B}}+ q\varphi$ \\
+Spin $s=1/2 \implies S = \frac{\hbar}{2} \vec{\sigma} \;\;\;\, \Psi(\mathbf{r}, t)  =\psi(\mathbf{r}, t) \phi(t)
+$\\ 
+\textbf{Identidad de Pauli:} $(\vec{\sigma} \cdot \vec{A})(\vec{\sigma} \cdot \vec{B}) = \vec{A} \cdot \vec{B} + i \vec{\sigma} \cdot (\vec{A} \times \vec{B})$.\\
+\textbf{Tensores:} $(\nabla \times F)^i = \varepsilon^{ijk} \partial_j F_k$\;\;\; $(\nabla \times F)_i = \varepsilon_{ijk} \partial_j F_k$\;\;\, $\varepsilon_{ijk}\varepsilon^{ijl}=\varepsilon_{ijk}\varepsilon^{lij}=2\delta_k^l$\\
+$(\vec{a} \cdot \vec{\sigma})(\vec{b} \cdot \vec{\sigma}) = (\vec{a} \cdot \vec{b})\mathbb{I} + i (\vec{a} \times \vec{b}) \cdot \vec{\sigma}$ \;\;\,\;  
+ $|\vec{e}|^2 = 1 \leadsto$
+ $\exp \{ i \alpha (\vec{e} \cdot \vec{\sigma}) \} = \mathbb{I} \cos \alpha + i (\vec{e} \cdot \vec{\sigma}) \sin \alpha$\\
+
+\section{NIVELES DE LANDAU Y SPIN}
+$\vec{B} = B\hat{z}$. $\omega_B = |q|B/mc$ (frec. ciclotrón). $r_B = v_\perp/\omega_B$.\\
+\textbf{Conmutación:} $[\hat{\pi}_x, \hat{\pi}_y] = i \frac{\hbar q B}{c} = i m \hbar \omega_B$.\\
+\textbf{Hamiltoniano Landau ($\nexists$ Spin):} $\hat{H} = \frac{1}{2m}(\hat{\pi}_x^2 + \hat{\pi}_y^2) + \frac{\hat{p}_z^2}{2m}$.\\
+\textbf{Energía:} $E_n = \hbar \omega_B (n + 1/2) + \frac{\hbar^2 k_z^2}{2m}$. Degeneración infinita en $k_z$.\\
+\textbf{Gauge de Landau ($\vec{A} = (0, Bx, 0)$):} $\Psi_{n, k_y, k_z} \sim e^{i(k_y y + k_z z)} \phi_n(x - x_c)$.\\
+Centro de guía: $x_c = -\frac{\hbar c k_y}{qB}$.\\
+\textbf{Con Spin (Ecuación de Pauli):} $\hat{H} = \hat{H}_{orb} - \frac{\mu}{s\hbar} \vec{S}\cdot\vec{B} = \hat{H}_{orb} - \vec{\mu}\cdot\vec{B}$.\\
+$E = \hbar \omega_B (n + 1/2) + \frac{\hbar^2 k_z^2}{2m} \mp \mu_B B$.
+
+\section{EFECTO HALL CUÁNTICO}
+$\hat{H} = \hat{H}_{Landau} - q E_y y$. Velocidad de deriva: $\langle v_x \rangle = c E_y/B$.\\
+\textbf{Espectro:} $E_{n, k_x} = \hbar \omega_B (n + 1/2) + \frac{m}{2}(\frac{c E_y}{B})^2 - \frac{\hbar c E_y}{B} k_x$.\\
+\textbf{Resistencia Hall:} $R_{yx} = \frac{V_y}{I_x} = \frac{B}{qnc}$. Cuantización: $R_{yx} = \frac{h}{q^2 \nu}$ ($\nu \in \mathbb{Z}$).\\
+\textbf{Degeneración por Nivel:} $N = \Phi/\Phi_0$ con $\Phi_0 = hc/q$ (Fluxon).
+
+\section{ÁTOMOS EN CAMPOS EXTERNOS}
+$\hat{H} = \hat{H}_0 + \frac{eB}{2mc}(L_z + 2S_z) + \frac{e^2 B^2}{8mc^2}(x^2 + y^2) - e \vec{E}\cdot\vec{r}$.\\
+\textbf{Zeeman:} $\Delta E = \mu_B B (m_l + 2m_s)$. Rompe degeneración en $m$.\\
+\textbf{Stark:} $V = -e|\vec{E}|z$. 1º orden en $n=1$ nulo (paridad). $n=2$ ($2s$ y $2p_0$): $\Delta E = \pm 3 e |\vec{E}| a_0$.\\
+\textbf{Diamagnetismo:} $\Delta E = \frac{e^2 B^2}{8mc^2} \langle x^2 + y^2 \rangle$. Siempre positivo.
+
+
+\section*{Neutrones en $\mathbf{B}$\normalfont{ (mom mag. $\mathbf{\mu}<0$ --- De Broglie: $\lambda = h/p,\;\,\;\; p = mv = \hbar k$)}}
+Si polariz. neutrons $\upharpoonleft \upharpoonright \mathbf{B} \Rightarrow$ Energía pot: $U=+\mu B$\\
+Si polariz. neutrons $\downharpoonleft \upharpoonright \mathbf{B} \Rightarrow$ Energía pot: $U=-\mu B$\\
+Intensidad interferencia 2 haces, amplitud A, desfase relativo $\Delta\phi$, intesidad 1! haz $I_0$:\\
+Energía haz fuera del campo: $E=\frac{\hbar^2 k^2}{2m}$, dentro: $E=\frac{\hbar^2 k}{2m} = \frac{\hbar^2 k'^2}{2m}+U$ (conserv. energía)\\
+$k' = k \sqrt{1-\frac{U}{E}}\approx k(1-\tfrac{U}{2E})= k - \frac{mU}{\hbar^2 k}$ Si 2 haces, 1 no $B$, otro $B$ durante long $l$, desfase:\\
+$\Delta \phi = (k' - k)l = -\frac{m U l}{\hbar^2 k} = -\frac{U l}{\hbar v} \Rightarrow\Delta\phi = \mp \frac{\mu B l}{\hbar v},\;\;\;v = \frac{h}{m\lambda}$
+\\
+$I=\propto |\psi_1 + \psi_2|^2 = |A + A e^{i\Delta \phi}|^2 = 2 I_0 (1 + \cos \Delta \phi) = 4 I_0 \cos^2 \left( \frac{\Delta \phi}{2} \right)$
+
+
+
+\section{MONOPOLO DE DIRAC}
+\textbf{Maxwell Modificado:} $\nabla \cdot \vec{B} = 4\pi \rho_m$. $\vec{B} = g \hat{r}/r^2$. Flujo $\Phi_B = 4\pi g$.\\
+\textbf{Potencial Vector:} $\vec{A}^{(\pm)} = \pm g \frac{1 \mp \cos\theta}{r \sin\theta} \hat{\phi}$. (Singularidad en polo S/N).\\
+\textbf{Cuantización de Carga:} $qg = \frac{n \hbar c}{2}$. Implica cuantización de toda carga eléctrica.
+
+\section{CRISTALES Y FONONES}
+\textbf{Cadena 1D:} $H = \sum [ \frac{p_n^2}{2m} + \frac{1}{2}\lambda (q_{n+1}-q_n)^2 ]$. Modos normales $\Omega_k^2 = \frac{4\lambda}{m} \sin^2(\frac{ak}{2})$.\\
+\textbf{Cuantización:} $\hat{H} = \sum \hbar \Omega_k (\hat{a}_k^\dagger \hat{a}_k + 1/2)$.\\
+\textbf{Fonones:} Excitaciones elementales (Bosones). $\hat{q}_n \sim \sum (\hat{a}_k e^{ikna} + \hat{a}_k^\dagger e^{-ikna})$.\\
+\textbf{3D:} $\Omega_\lambda(\vec{k}) \approx c_s k$ (acústicos). $\Omega \to \omega_0$ (ópticos).
+
+\section{SEGUNDA CUANTIZACIÓN Y GRAFENO}
+\textbf{Bosones:} $[\hat{a}_i, \hat{a}_j^\dagger] = \delta_{ij}$. \textbf{Fermiones:} $\{\hat{c}_i, \hat{c}_j^\dagger\} = \delta_{ij}$.\\
+\textbf{Grafeno:} Red hexagonal (subredes A, B). Puntos K (conos de Dirac).\\
+\textbf{Hamiltoniano Dirac:} $H \approx \hbar v_F \vec{\sigma} \cdot \vec{k}$. $E = \pm \hbar v_F |\vec{k}|$. $v_F \approx 10^6$ m/s.\\
+\textbf{Operador Campo:} $\hat{\Psi}(\vec{x}) = \sum \phi_i(\vec{x}) \hat{c}_i$.
+
+\section{CUANTIZACIÓN DEL CAMPO E.M. (FOTONES)}
+Gauge Coulomb $\nabla \cdot \vec{A} = 0, \varphi = 0$. $\hat{\vec{A}} \sim \sum_{\vec{k}, \eta} \sqrt{\frac{\hbar}{2\omega \epsilon_0 V}} \vec{\epsilon}_\eta (\hat{a}_{\vec{k},\eta} e^{i(\vec{k}\vec{x}-\omega t)} + \text{H.c.})$.\\
+\textbf{Energía:} $\hat{H}_{rad} = \sum_{\vec{k}, \eta} \hbar \omega (\hat{a}_{\vec{k},\eta}^\dagger \hat{a}_{\vec{k},\eta} + 1/2)$.\\
+\textbf{Fotón:} Estado $|\vec{k}, \eta\rangle = \hat{a}_{\vec{k},\eta}^\dagger |0\rangle$. Helididad $\eta = \pm 1$.
+
+\section{CUANTIZACIÓN DEL CAMPO E.M.}
+\textbf{Gauge de Coulomb:} $\varphi=0$, $\nabla \cdot \vec{A}=0$.
+\textbf{Campo Cuántico:}
+$\hat{\vec{A}}(t,\vec{x}) = \int \frac{d^3k}{(2\pi)^3} \frac{1}{\sqrt{2E(k)}} \sum_{\eta=\pm} \vec{\epsilon}_\eta(k) \left[ e^{i(k\cdot x - \omega t)} \hat{a}_\eta(k) + e^{-i(k\cdot x - \omega t)} \hat{a}_\eta^\dagger(k) \right]$.
+\textbf{Relación Dispersión:} $E(k) = \hbar \omega(k) = \hbar c |\vec{k}|$.
+\textbf{Transversalidad:} $\vec{k} \cdot \vec{\epsilon}_\eta(k) = 0$. $\vec{\epsilon}_\eta \cdot \vec{\epsilon}_{\eta'} = \delta_{\eta\eta'}$.
+\textbf{Campos Operadores:}
+$\bullet$ $\hat{\vec{E}} = -\frac{1}{c}\dot{\hat{\vec{A}}} = \frac{i}{\hbar c} \int \dots \sqrt{\frac{E}{2}} \sum \vec{\epsilon}_\eta [ e^{i\dots} \hat{a}_\eta - \text{H.c.} ]$.
+$\bullet$ $\hat{\vec{B}} = \nabla \times \hat{\vec{A}} = i \int \dots \frac{1}{\sqrt{2E}} \sum (\vec{k} \times \vec{\epsilon}_\eta) [ e^{i\dots} \hat{a}_\eta - \text{H.c.} ]$.
+\textbf{Hamiltoniano Radiación:} $\hat{H}_{rad} = \int \frac{d^3k}{(2\pi)^3} E(k) \sum \hat{a}_\eta^\dagger \hat{a}_\eta$.
+\textbf{Estados de Fock:} $|n(\vec{k}, \eta)\rangle = \frac{1}{\sqrt{n!}}(\hat{a}_\eta^\dagger)^n |0\rangle$. Energía $n \hbar \omega$.
+\textbf{Función de onda del fotón:} $\Psi_{\vec{k},\eta}(t, \vec{x}) = \langle 0 | \hat{\vec{A}} | \vec{k}, \eta \rangle = \frac{1}{\sqrt{2E(k)}} \vec{\epsilon}_\eta e^{i(k \cdot x - \omega t)}$.
+\textbf{Ejercicio Tip:} Si piden el valor esperado de $\vec{E}^2$, recuerda que aparecerá el término de energía del punto cero que se suele renormalizar/normalizar a $|0\rangle$.
+
+\section{ESTADOS COHERENTES (GLAUBER)}
+\textbf{Definición:} $|\alpha\rangle = e^{-|\alpha|^2/2} \sum \frac{\alpha^n}{\sqrt{n!}} |n\rangle$. Son autoestados de $\hat{a}$: $\hat{a}|\alpha\rangle = \alpha|\alpha\rangle$.
+\textbf{Propiedades:} $\langle \alpha | \hat{H} | \alpha \rangle = \hbar \omega (|\alpha|^2 + 1/2) = E_{cl} + E_{vac}$.
+\textbf{Límite Clásico:} En un estado de Glauber, $\langle \alpha | \hat{\vec{E}} | \alpha \rangle$ recupera la forma de una onda electromagnética clásica senoidal con amplitud $\propto |\alpha|$.
+\textbf{Incertidumbre:} Minimizan $\Delta x \Delta p = \hbar/2$ (paquetes de mínima incertidumbre).
+
+\section{INTERACCIÓN RADIACIÓN-MATERIA}
+\textbf{Hamiltoniano Total:} $\hat{H} = \hat{H}_{rad} + \hat{H}_{at} + \hat{H}_{int}$.
+\textbf{Acoplamiento Mínimo:} $\vec{p} \to \vec{p} - \frac{q}{c}\hat{\vec{A}}$.
+$\hat{H}_{int} = \hat{H}_{int}^{(1)} + \hat{H}_{int}^{(2)} + \hat{H}_{int}^{(s)}$.
+$\bullet$ $\hat{H}_{int}^{(1)} = -\frac{q}{mc} \hat{\vec{A}} \cdot \vec{p} \sim \sqrt{\alpha}$ (Procesos de 1 fotón: absorción/emisión).
+$\bullet$ $\hat{H}_{int}^{(2)} = \frac{q^2}{2mc^2} \hat{\vec{A}}^2 \sim \alpha$ (Procesos de 2 fotones: scattering).
+$\bullet$ $\hat{H}_{int}^{(s)} = -\frac{\mu}{s\hbar} \vec{S} \cdot \vec{B}$ (Interacción con el espín).
+\textbf{Teoría de Perturbaciones:} Al ser $\alpha \approx 1/137 \ll 1$, tratamos $\hat{H}_{int}$ como perturbación. El término $\vec{A} \cdot \vec{p}$ domina.
+\textbf{Ejercicio Tip:} En procesos de emisión espontánea, el estado inicial es $|n'\rangle \otimes |0\rangle$ y el final $|n\rangle \otimes |1\rangle$. El elemento de matriz solo recibe contribución de $\hat{a}^\dagger$ de $\hat{H}_{int}^{(1)}$.
+
+\section{REGLA DE SELECCIÓN DIPOLAR}
+\textbf{Aproximación Dipolar:} $e^{i\vec{k} \cdot \vec{x}} \approx 1$. Válida si $\lambda_{foton} \gg a_{atomo}$ (Baja energía).
+\textbf{Elemento de Matriz Atómico:}
+$\langle n, l, m | e^{-i\vec{k} \cdot \vec{x}} \vec{p} | n', l', m' \rangle \approx \langle n, l, m | \vec{p} | n', l', m' \rangle$.
+Usando $[\hat{H}_0, \vec{x}] = \frac{\hbar}{im} \vec{p}$:
+$\langle n | \vec{p} | n' \rangle = \frac{im}{\hbar}(E_{n'} - E_n) \langle n | \vec{x} | n' \rangle$.
+\textbf{Reglas de Selección (Dipolo Eléctrico):}
+1. $\Delta l = \pm 1$ (Cambio de paridad).
+2. $\Delta m = 0, \pm 1$.
+3. $\Delta n$ cualquiera.
+\textbf{Fuerza de Oscilador:} $f_{12} = \frac{2m}{3\hbar^2}(E_2 - E_1) \sum_{m_2, j} |\langle 2 | \hat{x}_j | 1 \rangle|^2$.
+
+\section{EMISIÓN Y ABSORCIÓN}
+\textbf{Emisión Espontánea:} Transición $|i\rangle \to |f\rangle + \gamma$.
+$\Gamma_{2\to 1} = \frac{4\alpha \omega^3}{3c^2} |\langle 1 | \vec{x} | 2 \rangle|^2$.
+\textbf{Coeficientes de Einstein:}
+$\bullet$ $A_{21}$: Tasa de emisión espontánea.
+$\bullet$ $B_{12}, B_{21}$: Tasas de absorción y emisión estimulada.
+\textbf{Relaciones:} $g_1 B_{12} = g_2 B_{21}$ y $A_{21} = \frac{\hbar \omega^3}{\pi^2 c^3} B_{21}$.
+\textbf{Emisión Estimulada:} Probabilidad $\propto (n_\gamma + 1)$. El $+1$ es la espontánea, el $n_\gamma$ es la estimulada.
+\textbf{Ejercicio Tip:} La vida media es $\tau = 1/\sum \Gamma$. Si hay varios canales de desintegración, suma las anchuras $\Gamma_{tot} = \Gamma_1 + \Gamma_2 + \dots$.
+
+\section{EFECTO FOTOELÉCTRICO}
+Proceso: $\gamma + \text{Átomo} \to \text{Ion} + e^-$.
+\textbf{Cinemática:} $\hbar \omega = E_{ioniz} + \frac{p_e^2}{2m}$.
+\textbf{Elemento de Matriz:} $\langle \Psi_{final} | e^{i\vec{k} \cdot \vec{x}} \vec{\epsilon} \cdot \vec{p} | \Psi_{1s} \rangle$.
+Aquí $\Psi_{final}$ es un estado de scattering (onda plana o función hipergeométrica).
+\textbf{Sección Eficaz ($d\sigma/d\Omega$):} $\propto \frac{\alpha}{E_\gamma} \sin^2 \theta$.
+$\bullet$ Máxima para $\theta = \pi/2$ (electrones salen perpendiculares al haz incidente).
+$\bullet$ Nula en la dirección de incidencia ($\theta = 0$).
+\textbf{Física:} El efecto depende de la frecuencia $\omega$, no de la intensidad (que solo afecta al número de electrones, no a su energía).
+
+\section{ECUACIÓN DE KLEIN-GORDON}
+\textbf{Origen:} Relación relativista $E^2 = p^2c^2 + m^2c^4$.
+$\left( \partial_\mu \partial^\mu + \frac{m^2c^2}{\hbar^2} \right) \phi(x) = 0$. (Operador D'Alembertiano $\square + \mu^2$).
+\textbf{Interpretación Probabilística:}
+$\rho = \frac{i\hbar}{2mc^2} (\phi^* \partial_t \phi - \phi \partial_t \phi^*)$.
+\textbf{Problema:} $\rho$ no es definida positiva (puede ser $<0$). Se interpreta como densidad de carga, no de probabilidad.
+\textbf{Soluciones Libre:} $\phi(x) = \int \frac{d^3k}{(2\pi)^3 \sqrt{2k^0}} [ a(k) e^{-ikx} + b^*(k) e^{ikx} ]$.
+Contiene energías positivas y negativas ($E = \pm \sqrt{p^2c^2+m^2c^4}$).
+\textbf{Lím. No Relativista:} Haciendo $\phi(t, \vec{x}) = e^{-imc^2t/\hbar} \Psi(t, \vec{x})$, se recupera la ec. de Schröd para $\Psi$ si $E_{cin} \ll mc^2$.
+\textbf{Acoplamiento EM:} Derivada covariante $D_\mu = \partial_\mu + \frac{iq}{\hbar c} A_\mu.  (D_\mu D^\mu + \mu^2) \phi = 0$.
+\\Corriente de probabilidad: $j^\mu = \frac{i\hbar}{2m} (\phi \partial^\mu \phi^* - \phi^* \partial^\mu \phi)$.
+
+
+\section{LA ECUACIÓN DE DIRAC LIBRE}
+\textbf{Motivación:} Superar el carácter cuadrático de KG y la densidad $\rho < 0$.
+\textbf{Derivación:} Factorización de $p^2 - m^2c^2 = (\gamma^\mu p_\mu - mc)(\gamma^\nu p_\nu + mc) = 0$.
+\textbf{Ecuación:} $(i\hbar \gamma^\mu \partial_\mu - mc)\psi(x) = 0$ o $(i\hbar \cancel{\partial} - mc)\psi = 0$.
+\textbf{Álgebra de Clifford:} $\{\gamma^\mu, \gamma^\nu\} = 2\eta^{\mu\nu}\mathbb{I}$.
+$\bullet$ $(\gamma^0)^2 = \mathbb{I}$, $(\gamma^i)^2 = -\mathbb{I}$. $\bullet$ $\text{tr}(\gamma^\mu) = 0$. $\bullet$ Dimensión mínima $N=4$.
+\textbf{Representación de Dirac (Estándar):}
+$\gamma^0 = \begin{pmatrix} \mathbb{I} & 0 \\ 0 & -\mathbb{I} \end{pmatrix}$, $\gamma^i = \begin{pmatrix} 0 & \sigma^i \\ -\sigma^i & 0 \end{pmatrix}$.
+\textbf{Representación de Weyl (Quiral):}
+$\gamma^0 = \begin{pmatrix} 0 & \mathbb{I} \\ \mathbb{I} & 0 \end{pmatrix}$, $\gamma^i = \begin{pmatrix} 0 & \sigma^i \\ -\sigma^i & 0 \end{pmatrix}$.
+$\gamma^5 = i\gamma^0 \gamma^1 \gamma^2 \gamma^3 = \begin{pmatrix} -\mathbb{I} & 0 \\ 0 & \mathbb{I} \end{pmatrix}$ (en Weyl).
+\textbf{Corriente de Probabilidad:} $j^\mu = c \bar{\psi}\gamma^\mu \psi$. $\rho = \psi^\dagger \psi \ge 0$.
+\textbf{Estrategia Examen:} Si piden probar inv. Lorentz, usa $S[\Lambda] \gamma^\mu S^{-1}[\Lambda] = \Lambda^\mu_{\phantom{\mu}\nu} \gamma^\nu$.
+
+\section{SOLUCIONES Y ESPINORES}
+\textbf{Ondas Planas:} $\psi(x) = u(\vec{k})e^{-ikx}$ ($E>0$) o $v(\vec{k})e^{ikx}$ ($E<0$).
+\textbf{Ecs. Algebraicas:} $(\cancel{k} - \frac{mc}{\hbar})u = 0$ y $(\cancel{k} + \frac{mc}{\hbar})v = 0$.
+\textbf{Estructura (Rep. Dirac):}
+$u_s(\vec{p}) = N \begin{pmatrix} \phi_s \\ \frac{c\vec{\sigma}\cdot\vec{p}}{E+mc^2}\phi_s \end{pmatrix}$, $v_s(\vec{p}) = N \begin{pmatrix} \frac{c\vec{\sigma}\cdot\vec{p}}{E+mc^2}\chi_s \\ \chi_s \end{pmatrix}$.
+$N = \sqrt{(E+mc^2)/2mc^2}$. $\phi, \chi$ espinores de Pauli.
+\textbf{Helicidad:} $\hat{h} = \frac{\vec{S}\cdot\vec{p}}{|\vec{p}|}$. Conmuta con $H$ libre. Proyecta el spin sobre el momento.
+
+\section{LÍMITE NO RELATIVISTA (NR)}
+Separamos $\psi = \binom{\theta}{\chi} e^{-imct/\hbar}$. $\theta$ (grande), $\chi$ (pequeña).
+$\chi \approx \frac{c\vec{\sigma}\cdot\vec{\pi}}{2mc^2} \theta$. $\vec{\pi} = \vec{p} - \frac{q}{c}\vec{A}$.
+\textbf{Ecuación de Pauli:}
+$i\hbar \partial_t \theta = \left[ \frac{(\vec{p} - \frac{q}{c}\vec{A})^2}{2m} + qA_0 - \frac{q\hbar}{2mc}\vec{\sigma}\cdot\vec{B} \right] \theta$.
+\textbf{Factor G:} Dirac predice $g=2$. El término de spin-campo es $\vec{\mu}\cdot\vec{B}$.
+\textbf{Estrategia:} Para derivar la ec. de Pauli, usa $(\vec{\sigma}\cdot\vec{A})(\vec{\sigma}\cdot\vec{B}) = \vec{A}\cdot\vec{B} + i\vec{\sigma}(\vec{A}\times\vec{B})$ y el hecho de que $[\pi_j, \pi_k] = \frac{i\hbar q}{c}\epsilon_{jkl}B_l$.
+
+\section{CORRECCIONES RELATIVISTAS}
+Hamiltoniano de orden $(mc)^{-2}$ para el átomo de H:
+$H_{rel} = \frac{p^2}{2m} + V(r) - \frac{p^4}{8m^3c^2} + \frac{\hbar^2}{8m^2c^2}(\nabla^2 V) + \frac{1}{2m^2c^2}\frac{1}{r}\frac{dV}{dr} \vec{S}\cdot\vec{L}$.
+1. \textbf{Masa-Velocidad:} $-p^4/8m^3c^2$.
+2. \textbf{Darwin:} $\frac{\hbar^2 \pi e^2}{2m^2c^2} \delta^{(3)}(\vec{r})$. Solo afecta a orbitales $s$ ($l=0$).
+3. \textbf{Spin-Órbita:} $\xi(r) \vec{S}\cdot\vec{L}$. Explica la estructura fina.
+
+\section{ANTIMATERIA Y SIMETRÍA C}
+\textbf{Conjugación C:} $\psi^C = C \bar{\psi}^T = i\gamma^2 \gamma^0 \bar{\psi}^T$.
+$\bullet$ Electrón ($q=-e, m$) $\leftrightarrow$ Positrón ($q=+e, m$).
+$\bullet$ En el mar de Dirac, un "hueco" en los niveles $E < 0$ se comporta como una partícula de carga opuesta y energía positiva.
+\textbf{Zitterbewegung:} Interferencia de soluciones $E \gtrless 0$.
+$\hat{v}(t) = c^2 \vec{p} H^{-1} + (\dots) e^{-i 2 H t/\hbar}$. Oscilación rápida de frecuencia $\omega \approx 2mc^2/\hbar$.
+
+\section{LÍMITE DE MASA NULA (WEYL)}
+Si $m=0$, el Hamiltoniano desacopla espinores $L$ y $R$.
+\textbf{Ecs. de Weyl:} $(D_0 + \vec{\sigma}\cdot\vec{D})\psi_R = 0$; $(D_0 - \vec{\sigma}\cdot\vec{D})\psi_L = 0$.
+\textbf{Quiralidad:} $\gamma^5 \psi_{R,L} = \pm \psi_{R,L}$. Para $m=0$, helicidad = quiralidad.
+\textbf{Corriente:} $j^0 = c(\psi_L^\dagger \psi_L + \psi_R^\dagger \psi_R)$; $\vec{j} = c(-\psi_L^\dagger \vec{\sigma} \psi_L + \psi_R^\dagger \vec{\sigma} \psi_R)$.
+
+\section{PARADOJA DE KLEIN}
+Scattering en escalón de potencial $V_0$.
+\textbf{Regímenes de la Barrera:}
+1. $E - mc^2 > V_0$: Transmisión clásica-cuántica normal.
+2. $E - mc^2 < V_0 < E + mc^2$: Reflexión total ($R=1$). Onda evanescente.
+3. $V_0 > E + mc^2$: \textbf{Paradoja de Klein}. $R > 1$ y $T < 0$ (flujo entrante desde la barrera).
+\textbf{Física:} Creación de pares $e^- e^+$. El campo es tan fuerte que "arranca" electrones del vacío, dejando positrones que se propagan dentro de la barrera.
+\textbf{Ejercicio Tip:} Calcula $\tilde{k} = \sqrt{(E-V_0)^2 - m^2c^4}/c$. En el régimen 3, $\tilde{k}$ es real pero el flujo se invierte.
+
+\section{ ÁLGEBRA Y MATRICES ÚTILES}
+$\bullet$ $\{\gamma^\mu, \gamma^\nu\} = 2\eta^{\mu\nu}$. $\eta = (-1,1,1,1)$.
+$\bullet$ $\gamma^0 = (\gamma^0)^\dagger$; $\gamma^i = -(\gamma^i)^\dagger$. $\bullet$ $\bar{\psi} = \psi^\dagger \gamma^0$.
+$\bullet$ $\text{tr}(\mathbb{I}) = 4$; $\text{tr}(\gamma^\mu) = 0$; $\text{tr}(\gamma^\mu \gamma^\nu) = 4\eta^\mu\nu$.
+$\bullet$ $\text{tr}(\gamma^5) = 0$; $\text{tr}(\gamma^5 \gamma^\mu \gamma^\nu) = 0$.
+$\bullet$ $\gamma^\mu \gamma_\mu = 4$; $\gamma^\mu \gamma^\nu \gamma_\mu = -2\gamma^\nu$.
+$\bullet$ \textbf{Bilinear L-Lorentz:} $\bar{\psi}\psi$ (Escalar), $\bar{\psi}\gamma^5\psi$ (Pseudoesc.), $\bar{\psi}\gamma^\mu\psi$ (Vector), $\bar{\psi}\gamma^\mu\gamma^5\psi$ (Axial).
+
+% \section{GUÍA DE EJERCICIOS DIRAC}
+% \textbf{1. Cálculo de Espinores:} Siempre normaliza $\bar{u}u = 2m$ o $u^\dagger u = 2E/c$. Verifica la helicidad usando $\vec{\sigma}\cdot\vec{p}$.
+% \textbf{2. Límite NR:} No olvides el prefactor $e^{-imct/\hbar}$. Desprecia $\ddot{\theta}$ y $\dot{\chi}$ comparado con términos de masa.
+% \textbf{3. Trazas:} Usa las propiedades de las trazas para calcular secciones eficaces $|M|^2 \sim \text{tr}(\dots)$.
+% \textbf{4. Matrices $\gamma$:} En la representación de Weyl, $\gamma^0$ intercambia componentes L y R. En Dirac, $\gamma^0$ mide la paridad intrínseca.
+
+
+\section{Otros}
+Part. libre en caja cúbica, lado $L$: $\psi(\mathbf{x}) = \frac{1}{\sqrt{L^3}}e^{i\mathbf{x·p}/\hbar}$, en estado energía $E=0$ $\rightarrow \mathbf{p}=0$\\
+ Potenciales $V=V(\mathbf{x_1-x_2})\xrightarrow{C.V.} \mathbf{R}= \tfrac{1}{2} \mathbf{(x_1+x_2)}, \mathbf{r} = \mathbf{x_1-x_2}$. 
+Jacobiano es la unidad.\\ 
+ $\langle V\rangle =\int_{L^3} d\mathbf{R}^3 \int_{L^3}V(\mathbf{r})d\mathbf{r}^3$ Si $V(\mathbf{r}) = 0$ para $r > R$, $\langle V\rangle =L^3\cdot \int_{\mathbb{R}^3} V(\mathbf{r})d\mathbf{r}^3$
+
+
+\input{integrals.tex}
+
+\color{white}
+% \lipsum[1-16]
+
+\end{multicols}
+\end{document}

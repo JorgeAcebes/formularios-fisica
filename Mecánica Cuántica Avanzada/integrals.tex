@@ -1,0 +1,398 @@
+
+FUNCIONES DE ONDA DE ÁTOMOS HIDROGENOIDES ($\rho = Zr/a_0$) $\Psi_{\text{tot}}= \Pi_{i=1}^n \psi_i$:
+\begin{align*}
+\psi_{100} &= \frac{1}{\sqrt{\pi}} \left(\frac{Z}{a_0}\right)^{3/2} e^{-\rho} \\
+\psi_{200} &= \frac{1}{4\sqrt{2\pi}} \left(\frac{Z}{a_0}\right)^{3/2} (2-\rho)e^{-\rho/2} \\
+\psi_{210} &= \frac{1}{4\sqrt{2\pi}} \left(\frac{Z}{a_0}\right)^{3/2} \rho e^{-\rho/2} \cos\theta \\
+\psi_{21\pm1} &= \pm \frac{1}{8\sqrt{\pi}} \left(\frac{Z}{a_0}\right)^{3/2} \rho e^{-\rho/2} \sin\theta e^{\pm i\phi} \\
+\psi_{300} &= \frac{1}{81\sqrt{3\pi}} \left(\frac{Z}{a_0}\right)^{3/2} (27 - 18\rho + 2\rho^2)e^{-\rho/3} \\
+\psi_{310} &= \frac{\sqrt{2}}{81\sqrt{\pi}} \left(\frac{Z}{a_0}\right)^{3/2} \rho(6 - \rho)e^{-\rho/3} \cos\theta \\
+\psi_{31\pm1} &= \pm \frac{1}{81\sqrt{\pi}} \left(\frac{Z}{a_0}\right)^{3/2} \rho(6 - \rho)e^{-\rho/3} \sin\theta e^{\pm i\phi} \\
+\psi_{320} &= \frac{1}{81\sqrt{6\pi}} \left(\frac{Z}{a_0}\right)^{3/2} \rho^2 e^{-\rho/3} (3\cos^2\theta - 1) \\
+\psi_{32\pm1} &= \pm \frac{1}{81\sqrt{\pi}} \left(\frac{Z}{a_0}\right)^{3/2} \rho^2 e^{-\rho/3} \sin\theta \cos\theta e^{\pm i\phi} \\
+\psi_{32\pm2} &= \frac{1}{162\sqrt{\pi}} \left(\frac{Z}{a_0}\right)^{3/2} \rho^2 e^{-\rho/3} \sin^2\theta e^{\pm 2i\phi}
+\end{align*}
+
+
+
+\section*{Integral de Corrección Energía de Primer Orden \normalfont{(si unidades CGS $\rightarrow$ quita $4\pi \epsilon_0$ )}}
+$ E^{(1)} = \left\langle \Psi^{(0)} \left| \frac{e^2}{4\pi\epsilon_0 |\mathbf{r}_1 - \mathbf{r}_2|} \right| \Psi^{(0)} \right\rangle
+\;\;\;\;\;\; \Psi^{(0)}(\mathbf{r}_1, \mathbf{r}_2) = \frac{Z^3}{\pi a_0^3} e^{-Z(r_1+r_2)/a_0}$
+$
+E^{(1)} = \frac{e^2}{4\pi\epsilon_0} \left( \frac{Z^3}{\pi a_0^3} \right)^2 \iint e^{-\frac{2Z(r_1+r_2)}{a_0}} \frac{1}{|\mathbf{r}_1 - \mathbf{r}_2|} d^3\mathbf{r}_1 d^3\mathbf{r}_2$\\
+Expandiendo en Arm. Esf. para $1/r_{12}$ y considerando la simetría esférica ($l=0$):
+$E^{(1)} = \frac{e^2}{4\pi\epsilon_0} \left( \frac{Z^6}{\pi^2 a_0^6} \right) (4\pi)^2 \int_0^\infty r_1^2 dr_1 \int_0^\infty r_2^2 dr_2 \, e^{-\frac{2Z(r_1+r_2)}{a_0}} \frac{1}{r_>} =$ \\
+$= \frac{e^2}{4\pi\epsilon_0} \frac{16Z^6}{a_0^6} \int_0^\infty r_1^2 e^{-\frac{2Zr_1}{a_0}} \left[ \int_0^\infty r_2^2 e^{-\frac{2Zr_2}{a_0}} \frac{1}{r_>} dr_2 \right] dr_1$
+
+Dividimos la integral interior en las regiones $r_2 < r_1$ ($r_> = r_1$) y $r_2 > r_1$ ($r_> = r_2$):
+$I_{\text{int}} = \frac{1}{r_1} \int_0^{r_1} r_2^2 e^{-\frac{2Zr_2}{a_0}} dr_2 + \int_{r_1}^\infty r_2 e^{-\frac{2Zr_2}{a_0}} dr_2 = \frac{a_0^3}{4Z^3} \left[ \frac{1}{r_1} - e^{-\frac{2Zr_1}{a_0}} \left( \frac{1}{r_1} + \frac{Z}{a_0} \right) \right]
+$
+Plug $I_{\text{int}}$ en int. ext. y queda resolver integrales del tipo $\int x^n e^{-\lambda x} dx$:
+$E^{(1)} = \frac{e^2}{4\pi\epsilon_0} \frac{4Z^3}{a_0^3} \int_0^\infty \left[ r_1 e^{-\frac{2Zr_1}{a_0}} - e^{-\frac{4Zr_1}{a_0}} \left( r_1 + \frac{Z r_1^2}{a_0} \right) \right] dr_1$
+
+\section*{Integrals%
+\normalfont\scriptsize{ $(n\in\mathbb{N}_0,m\in\mathbb{Z},\alpha,\beta,\gamma,\delta,\mu,\nu,\sigma,r\in\mathbb{R},x\in\mathbb{R}\cap\mathrm{Dom}_f,\;a,b,z\in\mathbb{C})$}\\ 
+\normalfont\scriptsize{+C omitted. Avoid division by 0. Most results can be extended to $\mathbb{C}$.}}
+\underline{Basic}\\[0pt]
+    \hspace*{0.2cm}
+    \scalebox{0.785}{$\int (x+\alpha)^rdx \!=\!\frac{(x+\alpha)^{r+1}}{r+1}$\;\;\;\;\;$ \int x(x+\alpha)^rdx \!=\!\frac{(x+\alpha)^{r+1}(rx{+}x{-}\alpha)}{(r{+}1)(r{+}2)}$\;\;\;\;\;$\int a^xdx \!=\!\frac{a^x}{\ln a}$\;\;\;\;\;$\int u\,dv =uv{-}\int v\,du$}\\
+\underline{Rational}
+    \\[3pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int \frac{dx}{\alpha x+\beta} =\frac{1}{\alpha}\ln|\alpha x+\beta|$\;\;\;\; \;$\int \frac{dx}{x^2+\alpha^2} =\frac{1}{\alpha}\arctan\frac{x}{\alpha}$\;\;\;\;\;$\int \frac{dx}{x^2-\alpha^2}=\frac{1}{2\alpha}\ln |\frac{x-\alpha}{x+\alpha}|$\;\;\;\;\;$\int \frac{dx}{\alpha^2-x^2} =\frac{1}{2\alpha}\ln|\frac{\alpha{+}x}{\alpha{-}x}|$}\\[3pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int \frac{dx}{\alpha x^2+\beta x+\gamma} =\frac{2}{\surd({4\alpha\gamma{-}\beta^2})}\arctan\frac{2\alpha x{+}\beta}{\surd({4\alpha\gamma{-}\beta^2)}}$\;\;\;\;\;$\int \frac{dx}{(x{+}\alpha)(x{+}\beta)} =\frac{1}{\beta{-}\alpha}\ln|\frac{\alpha{+}x}{\beta{+}x}|$}\\[2pt]
+    \underline{Roots}
+    \\[3pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int\surd(x^2+\alpha^2)=\frac{1}{2}\big[x\surd(x^2+\alpha^2)+\alpha^2\operatorname{arsinh}\frac{x}{|\alpha|}\big]$\;\;\;\;\;$\int\surd(x^2-\alpha^2)=\frac{1}{2}\big[x\surd(x^2-\alpha^2)-\alpha^2\ln|\surd(x^2-\alpha^2)+x|\big]$}
+    \\[3pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int \frac{dx}{\surd{(x^2+\alpha^2)}} ={\operatorname{arsinh}}\frac{x}{|\alpha|}$\;\;\;\;\;$\int \frac{dx}{\surd{(-x^2+\alpha^2)}} ={\arcsin}\frac{x}{|\alpha|}$\;\;\;\;\;$\int\frac{dx}{\surd(x^2-\alpha^2)}=\ln |\surd(x^2-\alpha^2)+x|$}
+    \\[3pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int\!\frac{dx}{x\surd(x^2+\alpha^2)}\!=\!-\!\frac{1}{\alpha}\operatorname{arsinh}\frac{\alpha}{|x|} $\;\;\;\;$\int\!\frac{dx}{x\surd(-x^2+\alpha^2)}\!=\!-\frac{1}{\alpha}\!\ln\frac{|\surd (-x^2+\alpha^2) +\alpha|}{|x|}$\;\;\;\;$\int\!\frac{dx}{x\surd(x^2-\alpha^2)}\!=\! \frac{1}{\alpha}\!\arctan\frac{\surd(x^2-\alpha^2)}{\alpha}$}
+    \\[3pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int \frac{x}{\surd(x^2\pm\alpha^2 )}dx=\surd(x^2\pm \alpha^2)$\;\;\;\;$\int\frac{x}{\surd(-x^2 +\alpha^2)}dx=-\surd(-x^2+\alpha^2)$}
+    \\[3pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int\frac{dx}{(x^2\pm\alpha^2)^{3/2}}=\frac{\pm x}{\alpha^2 \surd(x^2\pm\alpha^2)}$\;\;\;\;$\int\frac{dx}{(-x^2+\alpha^2)^{3/2}}=\frac{x}{\alpha \surd(-x^2+\alpha^2)}$}
+    \\[3pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int\frac{x}{(x^2\pm\alpha^2)^{3/2}}=\frac{-1}{\surd(x^2\pm\alpha^2)}$\;\;\;\;$\int\frac{x}{(x^2\pm\alpha^2)^{3/2}}=\frac{-1}{\surd(x^2\pm\alpha^2)}$}\\[2pt]
+\underline{Trigonometric}\;\;\scalebox{0.8}{$(\mu,\nu>0, \; \chi\equiv x\alpha , \; \gamma\equiv \alpha+\beta, \; \delta \equiv \alpha-\beta)$}
+     \\[3pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int \sin x\,dx = -\cos x $\;\;\;\:$\int  \cos x \, dx = \sin  x$\;\;\;\;\;\;\;\;$\int   \frac{dx}{\sin^2 x} = -\cot x $\;\;\;\;\;\;\;$\int   \frac{dx}{\cos^2 x} = \tan x $\;\;\;\;\:\;\;\:$\int \frac{dx}{\tan ^2 x} = -\cot x-x$}
+    \\[3pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int \sinh x\,dx\! =\! \cosh x $\;\;\;\;\:$\int  \cosh x \, dx\!=\! \sinh x$\;\;\;\;\:$\int   \frac{dx}{\sinh^2 x}\! =\! -\coth x $\;\;\;\;\:$\int   \frac{dx}{\cosh^2 x} \!=\! \tanh x $\;\;\;\;\:$\int\frac{dx}{\tanh^2 x}\!=\!-\coth x\!+x$}
+    \\[3pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int \tan x \, dx= -\ln |\cos x|$\;\;\;\;\:$\int \tan^2x\,dx =\tan x{-}x$\;\;\;\;\:$\int\tanh x\, dx=\ln \cosh x$\;\;\;\;\:$\int\tanh ^2 x\, dx=-\tanh x+x$}
+    \\[5pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int \frac{dx}{\sin x} ={-}\ln|\frac{1}{\sin x}{+}\frac{1}{\tan x}|$\;\;\;\;\:\;\;\:$\int \frac{dx}{\cos x} =\ln|\frac{1}{\cos x}{+}\tan x|$\;\;\;\;\:\;\;\:$\int \frac{dx}{\tan x}=\ln|\sin x|$}
+    \\[5pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int \sin^n\alpha x\,dx \!=\!{-}\frac{\sin^{n-1}\chi\,\cos\chi}{n\alpha}{+}\frac{n-1}{n}\int \sin^{n-2}\alpha x\,dx$\;\;\;\;\:$\int \cos^n\alpha x\,dx \!=\!{+}\frac{\cos^{n-1}\chi\,\sin\chi}{n\alpha}{+}\frac{n-1}{n}\int \cos^{n-2}\alpha x\,dx$}
+    \\[5pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int \sin\alpha x\sin\beta x\,dx \!=\!{-}\frac{\sin \gamma x }{2\gamma}{+}\frac{\sin \delta x}{2\delta}$\;\;\;\;\:$\int \cos\alpha x\cos\beta x\,dx \!=\!{+}\frac{\sin \gamma x}{2\gamma }{+}\frac{\sin\delta x}{2\delta}$\;\;\;\;\:$\int \sin\alpha x\cos\beta x\,dx \!=\!{-}\frac{\cos\gamma x}{2\gamma}{-}\frac{\cos\delta x}{2\delta}$}
+    \\[4pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int x\sin\alpha x\,dx =\frac{\sin\chi }{\alpha^2}{-}\frac{x\cos\chi}{\alpha}$\;\;\;\;\:$\int x\cos\alpha x\,dx =\frac{\cos\chi }{\alpha^2}{+}\frac{x\sin\chi}{\alpha}$\;\;\;\;\:$\int x\genfrac{}{}{0pt}{}{\sin^2}{\cos^2}\alpha x\,dx =\mp\frac{2\chi\,\sin 2\chi \, {+}\cos 2\chi \, \mp\, 2\chi^2}{8\alpha^2}$}
+    \\[5pt]\hspace*{0.2cm}
+        \scalebox{0.77}{$\int \!x\genfrac{}{}{0pt}{}{\sin\alpha x\sin\beta x}{\cos\alpha x\cos\beta x}dx {=}\!\mp\!\frac{x\sin \gamma x}{2\gamma}\!\mp\!\frac{\cos\gamma x}{2\gamma^2}{+}\frac{x\sin \delta x}{2\delta}{+}\frac{\cos\delta x}{2\delta^2}$\;\;\,\,$\int \!x\sin \alpha x \cos \beta x\,dx {=}{-}\frac{x\cos\gamma x}{2\gamma}{+}\frac{\sin \delta x}{2\delta^2}{-}\frac{x\cos\delta x}{2\delta}\!{+}\frac{\sin\gamma x}{2\gamma^2}$}
+    \\[5pt]\hspace*{0.2cm}\scalebox{0.8}{\underline{Definite integrals} ($m!! =m(m{-}2)(m{-}4)...$, \; ${-}1!! =0!! =1!! =1$)}
+    \\[2pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int_0^{\pi/2}\! \sin^\mu x\,dx {=}\int_0^{\pi/2}\! \cos^\mu x\,dx\!=\!\frac{1}{2}\!\operatorname{B}(\frac{\mu+1}{2},\frac{1}{2}) {=}\frac{(n-1)!!}{n!!}\!\cdot\!\begin{cases}\frac{\pi}{2}&\hspace{-3pt}\text{if }\mu{=}n\text{ even}\\\;1&\hspace{-3pt}\text{if }\mu {=}n\text{ odd}\end{cases}$\;\;\;\;\;\;$\int_{-1}^{+1} \genfrac{}{}{0pt}{}{\sin(m\pi x)\sin(\tilde{m}\pi x)}{\cos(m\pi x)\cos(\tilde{m}\pi x)}dx \!=\!\delta_{m,\tilde{m}}$}
+    \\[5pt]\hspace*{0.2cm}
+        \scalebox{0.785}
+{$\left.\hspace{-5pt}
+\begin{array}{c}
+\int_0^\alpha\!\!\genfrac{}{}{0pt}{}{\sin(\frac{m\pi x}{\alpha})\sin(\frac{\tilde{m} \pi x}{\alpha})}{\cos(\frac{m \pi x}{\alpha})\cos(\frac{\tilde{m}\pi x}{\alpha})}dx \!=\!\frac{\alpha}{2}\delta_{m,\tilde{m}}
+\vspace{3pt}\\
+\text{also valid $m=1/2$}
+\end{array}
+\right.$\;\;\;$\int_0^\alpha \!\sin(\frac{m \pi x}{\alpha})\cos(\frac{\tilde{m}\pi x}{\alpha})dx\!=\!\begin{cases}\;\;\;\;\;0&\!\!\text{if }m{+}\tilde{m}\text{ even}\vspace{3pt}\\\frac{2m\alpha}{m^2-\tilde{m}^2}\frac{1}{\pi}&\!\!\text{if }m{+}\tilde{m}\text{ odd}\end{cases}$\;\;\;\;$\int_0^\pi\! \genfrac{}{}{0pt}{}{\sin x\,dx =2}{\cos x\,dx =0}$}
+    \\[5pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int_0^\pi \sin^nx\cos^{\tilde{n}}x\,dx =0\ \forall\, \tilde{n}\text{ odd}$\;\;\;\;\;\;$\int_0^{\pi\mu} \genfrac{}{}{0pt}{}{\sin^2\alpha x}{\cos^2\alpha x}dx =\frac{1}{4\alpha}\left[2\pi\alpha\mu\mp\sin(2\pi\alpha\mu)\right]\stackrel{\text{if }\mu =n} =\frac{\pi n}{\alpha}$\;\;\;\;\;$\int_0^\pi \genfrac{}{}{0pt}{}{\sin^3x\,dx =\frac{4}{3}}{\cos^3x\,dx =0}$}
+    \\[5pt]\hspace{0.2cm}
+        \scalebox{0.785}{$\int_0^{2\pi} \genfrac{}{}{0pt}{}{\sin x}{\cos x}dx =0$\;\;\;\;\;\;$\int_0^{2\pi} \sin x\cos x\,dx =0$\;\;\;\;\;\;$\int_0^{2\pi} \sin^nx\cos^{\tilde{n}} x\,dx =0\text{ if }n,\tilde{n}\text{ not both even}$\;\;\;\;\;\;$\int_0^{2\pi} \genfrac{}{}{0pt}{}{\sin^3x}{\cos^3x}dx =0$}
+    \\[5pt]\hspace{0.2cm}
+        \scalebox{0.785}{$\int_0^{2\pi} (1{-}\cos x)^n\sin nx\,dx =0$\;\;\;\;\;\;$\int_0^{2\pi} (1{-}\cos x)^n\cos nx\,dx =(-1)^n\frac{\pi}{2^{n-1}}$}\\[5pt]
+\underline{Parity}\;\;\;\;\;\;\;\;\scalebox{0.8}{$\text{ \textit{Even}}: f_e(-x) = f_e(x)\text{\;\:\; sym w.r.t Y-axis}$\;\;\;\;\;\;\;\;\;$\text{ \textit{Odd}}: f_o(-x) = -f_o(x)\text{\;\;\;sym w.r.t (0,0)}$}
+    \\[4pt]\hspace{1.8cm}
+        \scalebox{0.785}{$\int_{-\alpha}^{+\alpha} f_e(x)\,dx =2\int_{0}^{\alpha}f_e(x)\,dx$\hspace{2.75cm}$\int_{-\alpha}^{+\alpha} f_o(x)\,dx =0$}
+    \\[5pt]\hspace{0.2cm}
+        \scalebox{0.785}{$f_e  :   \cos x,\;  \cosh x,\;  x^{2n},\;  e^{-x^2} ,\;  |x|,\;  \delta_{ij},\;  \delta(x),\;  \mathbb{R}, \;  1/f_e, \;  f'_o, \; f_e\pm f_e, \;  f_e\cdot f_e, \; f_o\cdot f_o, \; \mathcal{F}\{f_e(x)\} (\xi),...$}
+    \\[5pt]\hspace{0.2cm}
+    \scalebox{0.785}{$f_o :  \sin x,\; \sinh x,\; x^{2n+1},\; \tan x,\; \operatorname{erf}x,\; \operatorname{sign}x,\;\ln \big(\frac{1+x}{1-x}\big),\; 1/f_o, \; f'_e,\; f_o\pm f_o, \; f_e \cdot f_o, \;\mathcal{F}\{f_o(x)\} (\xi) ,...$}\\[2pt]
+\underline{Log/Exp} \; \scalebox{0.75}{$(r\neq-1)$} 
+    \\[2pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int x^r\ln x\,dx =x^{r+1}\left(\frac{\ln x}{r+1}{-}\frac{1}{(r+1)^2}\right)$\;\;\;\;\;\;$\int(\ln x)^n \, dx= (-1)^n \, n!\, x \displaystyle \sum_{k=0}^n \frac{(-\ln x)^k}{k!}$\;\;\;\;\;$\int \frac{dx}{(e^{-x/\alpha}{+}1)} =\alpha\ln(e^{x/\alpha}{+}1)$}
+    \\[5pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int xe^{\alpha x^2}dx =\frac{e^{\alpha x^2}}{2\alpha}$\;\;\;\;\;\;\;\;$\int x^n  e^{\alpha x}dx=e^{\alpha x}\displaystyle\sum_{k=0}^n  \frac{n!\, (-1)^k}{(n-k)!}\frac{x^{n-k}}{\alpha ^{k+1}}$\;\;\;\;\;\;\;\;$\int \frac{e^{\alpha x}}{x^n}dx =\frac{1}{n{-}1}\left({-}\frac{e^{\alpha x}}{x^{n-1}}{+}\alpha\int \frac{e^{\alpha x}}{x^{n-1}}dx\right)$}
+    \\[5pt]\hspace*{0.2cm}\scalebox{0.8}{\underline{Definite integrals} ($r-1,\,\alpha>0$\;\;\;$\gamma\equiv$Euler-Mascheroni constant)}
+    \\[3pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int_0^\infty x^re^{-\alpha x^2}dx =\frac{\Gamma\left(\frac{r+1}{2}\right)}{2\alpha^{\frac{r+1}{2}}} =\begin{cases}\frac{(2n{-}1)!!}{2^{n+1}\;\alpha^n}\sqrt{\frac{\pi}{\alpha}} & \text{if }r =2n \vspace{3pt}\\\frac{n!}{2\;\alpha^{n+1}} & \text{if }r =2n{+}1\end{cases}$\;\;\;\;\;}\scalebox{0.785}{\[\begin{array}{ll}&\int_0^\infty e^{-\alpha x^2}dx =\frac{1}{2}\sqrt{\frac{\pi}{\alpha}}\vspace{5pt}\\&\int_0^\infty x^2e^{-\alpha x^2}dx=\frac{1}{4}\sqrt{\frac{\pi}{\alpha^3}}\end{array}\]}
+    \\[6pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int_0^\infty x^re^{-ax}dx =\frac{\Gamma(r{+}1)}{a^{r+1}}\stackrel{\text{if }r =n} =\frac{n!}{a^{n+1}}$ \ {\scriptsize$(r{>}{-}1,\Re(a){>}0)$}\;\;\;\;\;\;\;\;$\int_0^\infty \sqrt{x}e^{-x}dx =\frac{\sqrt{\pi}}{2}$\;\;\;\;\;\;\;\;$\int_0^\infty \frac{x}{e^x{-}1}dx =\frac{\pi^2}{6}$}
+    \\[5pt]\hspace*{0.2cm}
+        \scalebox{0.785}{$\int_0^\infty e^{-ax^b}dx =a^{-1/b}\Gamma\left(\frac{1}{b}{+}1\right)$ \;\;\;\;\;\;\;\;$\int_{-\infty}^{+\infty} e^{-\alpha x^2{+}\beta x}dx =\sqrt{\frac{\pi}{\alpha }}e^{\frac{\beta^2}{4\alpha }}$\;\;\;\;\;\;\;\;$\int_0^{2\pi} e^{i(m-\tilde{m})\phi}d\phi =2\pi\delta_{m,\tilde{m}}$}
+    \\[5pt]\hspace*{0.2cm}
+        \scalebox{0.8}{$\int_0^\infty e^{-\alpha x}\sin(\beta x)dx =\frac{\beta}{\alpha^2{+}b^2}$\;\;\;\;\;\;$\int_0^\infty e^{-\alpha x}\cos(\beta x)dx =\frac{\alpha }{\alpha^2{+}\beta^2}$\;\;\;\;\;\;$\int_0^\infty \frac{\ln x}{e^x}dx =\int_1^\infty \left(\frac{1}{x}{-}\frac{1}{\lfloor x\rfloor}\right)dx ={-}\gamma$}
+      \\[5pt]\hspace*{0.2cm}\scalebox{0.8}{\underline{Error function integrals} ($\varphi =\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\!,$ \;\;$\mu{\equiv}$mean, $\sigma^2{\equiv}$variance)\;\;\;\;$\operatorname{erf}(\pm \infty) =\pm1$\;\;\;\;$i\operatorname{erfi}(z) =\operatorname{erf}(iz)$}
+    \\[3pt]\hspace{0.2cm}
+        \scalebox{0.785}{$\frac{2}{\sqrt{\pi}}\int_0^ze^{-t^2}dt =\operatorname{erf}(z)$\;\;\;\;\;\;$\int \varphi dx =\frac{1}{2}\operatorname{erf}\left(\frac{x{-}\mu}{\sqrt{2}\,\sigma}\right)$\;\;\;\;\;\;$\int \sqrt{x}\,e^{ax}dx =\frac{\sqrt{x}\,e^{ax}}{a}{-}\frac{\sqrt{\pi}\,\operatorname{erfi}(\sqrt{a}\sqrt{x})}{2a^{3/2}}$}\\
+\vspace{5pt}
+\underline{Integrales/trig usadas en ejercicios}:\\
+$\int_{-a}^{+a}\cos^2 (\tfrac{\pi n}{2a}) \, u^4 \, du = \tfrac{\pi^2 -20\pi^2+120}{5\pi ^4} a^5 
+$ (En pot. cuártico, $V= \xi \,  x^4$)\\
+$\int_{\Omega} e^{iqr \cos \theta} d\Omega = 4\pi\frac{\sin (qr)}{qr}$\;\;\;\, $\arctan(x\rightarrow \infty)=\pi /2$\;\;\;\;$\sqrt{a-x} \xrightarrow{x\rightarrow0}\sqrt{a}-\frac{x}{2\sqrt{a}}$
+\\
+$\tan (ka+\delta) = \frac{\tan (ka)+ \tan \delta}{1- \tan (ka)\tan\delta}$ \!\!\!\! $\begin{array}{ll}
+     u = \tan(ka)  \\
+     v = \tan(\delta) 
+\end{array}$\;\;\; $1+\tan^2 \delta = \frac{1}{\cos^2(\delta)}$ \;\;\;\; $e^{i2\delta} = \frac{1 + i \tan \delta}{1- i\tan \delta}$
+\\
+$\cos^2 (x)= \frac{1+\cos(2x)}{2}$\;\;\; $\sin^2(x)=\frac{1-\cos (2x)}{2}$\;\;\;\; $\sin(ka)\cos(ka)=\frac{1}{2}\sin(2ka)$\\
+$\tan(ka)-\tan(ka+\delta) = \Omega \Rightarrow \tan(\delta) = \frac{-\frac{\Omega}{2} [1+\cos(2ka)]}{1-\frac{\Omega}{2}\sin(2ka)}=\frac{-\Omega}{1+\tan^2(ka)-\Omega\tan(ka)}$
+\\
+$\cot(ka+\delta)-\cot(ka)=\Omega \Rightarrow \tan(\delta) = \frac{-\frac{\Omega}{2} [1-\cos^2(2ka)]}{1+\frac{\Omega}{2}\sin(2ka)} = \frac{-\Omega\tan^2(ka)}{1+\tan^2(ka)+\Omega\tan(ka)}$ \\$\cot (ka)=1/\tan(ka)$ Condición de resonancia: $\cot(\delta)=0$ $\leadsto$ $ka =\eta$, defino:\\
+$k_{\text{res}} \,a = \eta - \epsilon$. Despeja $\epsilon$, sust. en $k_{\text{res}}$, $E_{\text{res}} = \frac{\hbar^2 k_{\text{res}}^2}{2m}$ \;\;$\Gamma= -2 \left.\left\{\frac{d(\cot\delta)}{dE}\right|_{E=E_{\text{res}}}\right\}^{-1}$
+\\
+$\int\limits^{r}_{\frac{a}{k}} \sqrt{k^{2} - \frac{a^{2}}{x^{2}}} \, \mathrm{d}x=
+\sqrt{k^{2} r^{2} - a^{2}} - a \arctan\left(\frac{\sqrt{k^{2} r^{2} - a^{2}}}{a}\right)$ con $\begin{array}{cc}
+     a = \sqrt{l(l+1)}, \\
+     r_0= a/k
+\end{array}$ \;  (WKB)\\
+
+
+
+ 
+
+\section*{Coordinate Systems}
+\underline{Spherical} $(\theta \in [0, \pi], \phi \in [0, 2\pi))$
+\begin{align*}
+&\begin{cases} 
+x = r \sin\theta\cos\phi \\ 
+y = r \sin\theta\sin\phi \\ 
+z = r \cos\theta 
+\end{cases}
+&
+\begin{cases} 
+\mathbf{\hat{x}} = \sin\theta\cos\phi\,\mathbf{\hat{r}} + \cos\theta\cos\phi\,\bm{\hat{\theta}} - \sin\phi\,\bm{\hat{\phi}} \\
+\mathbf{\hat{y}} = \sin\theta\sin\phi\,\mathbf{\hat{r}} + \cos\theta\sin\phi\,\bm{\hat{\theta}} + \cos\phi\,\bm{\hat{\phi}} \\
+\mathbf{\hat{z}} = \cos\theta\,\mathbf{\hat{r}} - \sin\theta\,\bm{\hat{\theta}} 
+\end{cases}
+\\[0pt]
+&\begin{cases} 
+r = \sqrt{x^2+y^2+z^2} \\ 
+\theta = \arctan(\sqrt{x^2+y^2}/z) \\ 
+\phi = \arctan(y/x) 
+\end{cases}
+&
+\begin{cases} 
+\mathbf{\hat{r}} = \sin\theta\cos\phi\,\mathbf{\hat{x}} + \sin\theta\sin\phi\,\mathbf{\hat{y}} + \cos\theta\,\mathbf{\hat{z}} \\ 
+\bm{\hat{\theta}} = \cos\theta\cos\phi\,\mathbf{\hat{x}} + \cos\theta\sin\phi\,\mathbf{\hat{y}} - \sin\theta\,\mathbf{\hat{z}} \\ 
+\bm{\hat{\phi}} = -\sin\phi\,\mathbf{\hat{x}} + \cos\phi\,\mathbf{\hat{y}} 
+\end{cases}
+\end{align*}
+
+\underline{Cylindrical}  $(\rho \in [0, \infty), \phi \in [0, 2\pi))$
+\begin{align*}
+&\begin{cases} 
+x = \rho\cos\phi \\ 
+y = \rho\sin\phi \\ 
+z = z 
+\end{cases} & 
+\begin{cases} 
+\mathbf{\hat{x}} = \cos\phi\,\bm{\hat{\rho}} - \sin\phi\,\bm{\hat{\phi}} \\ 
+\mathbf{\hat{y}} = \sin\phi\,\bm{\hat{\rho}} + \cos\phi\,\bm{\hat{\phi}} \ \ \
+\\ 
+\mathbf{\hat{z}} = \mathbf{\hat{z}} 
+\end{cases}
+\\[0pt]
+&\begin{cases} 
+\rho = \sqrt{x^2+y^2} \\ 
+\phi = \arctan(y/x) \\ 
+z = z 
+\end{cases}
+&
+\begin{cases} 
+\bm{\hat{\rho}} = \cos\phi\,\mathbf{\hat{x}} + \sin\phi\,\mathbf{\hat{y}} \\ 
+\bm{\hat{\phi}} = -\sin\phi\,\mathbf{\hat{x}} + \cos\phi\,\mathbf{\hat{y}} \\ 
+\mathbf{\hat{z}} = \mathbf{\hat{z}} 
+\end{cases}
+\end{align*}
+
+
+\section{Vector Derivatives}
+\underline{Cartesian} ($d\mathbf{l} = dx\,\hat{\mathbf{x}} + dy\,\hat{\mathbf{y}} + dz\,\hat{\mathbf{z}}$, $dV = dx\,dy\,dz$)
+\begin{align*}
+\text{Gradient:}   \;\; &\nabla f = \partial_x f\,\hat{\mathbf{x}} 
+                                 + \partial_y f\,\hat{\mathbf{y}} 
+                                 + \partial_z f\,\hat{\mathbf{z}} \\[2pt]
+\text{Divergence:} \;\; &\nabla \cdot \mathbf{F} = \partial_x F_x 
+                                 + \partial_y F_y 
+                                 + \partial_z F_z \\[2pt]
+\text{Curl:}       \;\; &\nabla \times \mathbf{F} = \begin{cases}
+                                  \partial_y F_z - \partial_z F_y \\[3pt]
+                                  \partial_z F_x - \partial_x F_z \\[3pt]
+                                  \partial_x F_y - \partial_y F_x
+                                  \end{cases} 
+                                  \begin{matrix}
+                                  \text{in } \hat{\mathbf{x}} \\[3pt]
+                                  \text{in } \hat{\mathbf{y}} \\[3pt]
+                                  \text{in } \hat{\mathbf{z}}
+                                  \end{matrix} \\[2pt]
+\text{Laplacian:}  \;\; &\nabla^2 f = \partial^2_x f + \partial^2_y f + \partial^2_z f
+\end{align*}
+\underline{Spherical} ($d\mathbf{l} = dr\,\hat{\mathbf{r}} + r\,d\theta\,\bm{\hat{\theta}} + r\sin\theta\,d\phi\,\bm{\hat{\phi}}$, $dV = r^2\sin\theta\,dr\,d\theta\,d\phi$)
+\begin{align*}
+\text{Gradient:}   \;\; &\nabla f = \partial_r f\,\hat{\mathbf{r}} 
+                                 + \frac{1}{r}\partial_\theta f\,\bm{\hat{\theta}} 
+                                 + \frac{1}{r\sin\theta}\partial_\phi f\,\bm{\hat{\phi}} \\[2pt]
+\text{Divergence:} \;\; &\nabla \cdot \mathbf{F} = \frac{1}{r^2}\partial_r (r^2 F_r) 
+                                 + \frac{1}{r\sin\theta}\partial_\theta (\sin\theta\,F_\theta) 
+                                 + \frac{1}{r\sin\theta}\partial_\phi F_\phi \\[2pt]
+\text{Curl:}       \;\; &\nabla \times \mathbf{F} = \begin{cases}
+                                  \frac{1}{r\sin\theta}\left[\partial_\theta (\sin\theta\,F_\phi) - \partial_\phi F_\theta\right] \\[7pt]
+                                  \frac{1}{r}\left[\frac{1}{\sin\theta}\partial_\phi F_r - \partial_r (r F_\phi)\right] \\[7pt]
+                                  \frac{1}{r}\left[\partial_r (r F_\theta) - \partial_\theta F_r\right]
+                                  \end{cases}
+                                  \begin{matrix}
+                                  \text{in } \hat{\mathbf{r}} \\[7pt]
+                                  \text{in } \bm{\hat{\theta}} \\[7pt]
+                                  \text{in } \bm{\hat{\phi}}
+                                  \end{matrix} \\[2pt]
+\text{Laplacian:}  \;\; &\nabla^2 f = \frac{1}{r^2}\partial_r \left(r^2\partial_r f\right) 
+                                 + \frac{1}{r^2\sin\theta}\partial_\theta \left(\sin\theta\,\partial_\theta f\right) 
+                                 + \frac{\partial^2_\phi f}{r^2\sin^2\theta}
+\end{align*}
+\underline{Cylindrical} ($d\mathbf{l} = d\rho\,\bm{\hat{\rho}} + \rho\,d\phi\,\bm{\hat{\phi}} + dz\,\hat{\mathbf{z}}$, $dV = \rho\,d\rho\,d\phi\,dz$)
+\begin{align*}
+\text{Gradient:}   \;\; &\nabla f = \partial_\rho f\,\bm{\hat{\rho}} 
+                                 + \frac{1}{\rho}\partial_\phi f\,\bm{\hat{\phi}} 
+                                 + \partial_z f\,\hat{\mathbf{z}} \\[2pt]
+\text{Divergence:} \;\; &\nabla \cdot \mathbf{F} = \frac{1}{\rho}\partial_\rho (\rho F_\rho) 
+                                 + \frac{1}{\rho}\partial_\phi F_\phi 
+                                 + \partial_z F_z \\[2pt]
+\text{Curl:}       \;\; &\nabla \times \mathbf{F} = \begin{cases}
+                                  \frac{1}{\rho}\partial_\phi F_z - \partial_z F_\phi \\[4pt]
+                                  \partial_z F_\rho - \partial_\rho F_z \\[4pt]
+                                  \frac{1}{\rho}\left[\partial_\rho (\rho F_\phi) - \partial_\phi F_\rho\right]
+                                  \end{cases}
+                                  \begin{matrix}
+                                  \text{in } \bm{\hat{\rho}} \\[4pt]
+                                  \text{in } \bm{\hat{\phi}} \\[4pt]
+                                  \text{in } \hat{\mathbf{z}}
+                                  \end{matrix} \\[2pt]
+\text{Laplacian:}  \;\; &\nabla^2 f = \frac{1}{\rho}\partial_\rho \left(\rho\,\partial_\rho f\right) 
+                                 + \frac{1}{\rho^2}\partial^2_\phi f 
+                                 + \partial^2_z f
+\end{align*}
+
+
+\begin{center}
+\includegraphics[width=0.3\linewidth]{scattering_diagram.png}
+\end{center}
+
+\section*{EDOS}
+$y'' + k^2 y = 0$
+ \textbf{Trig.:} $y(x) = A \sin(kx) + B \cos(kx)$
+\textbf{Exp.:} $y(x) = C e^{ikx} + D e^{-ikx}$\\
+ \textbf{Fase:} $y(x) = \mathcal{A} \sin(kx + \delta)$ o $y(x) = \mathcal{B} \cos(kx + \tilde{\delta})$ \textcolor{red}{escógela con \hspace{-2pt} $\begin{array}{cc}
+      \text{misma paridad que $V(r)$} \\
+       \text{o similar al otro trozo}
+ \end{array}$}\\
+\textbf{Ecuación Radial Libre:} $\left[\frac{d^2}{dr^2} + k^2 - \frac{l(l+1)}{r^2}\right] u_l(r) = 0 \implies u_l(r) = A r j_l(kr) + B r n_l(kr)$. \\
+
+\textbf{Bessel Esf.:} $\left[\frac{d^2}{d\rho^2} - \frac{l(l+1)}{\rho^2}+1\right] (\rho \tilde{R}_l (\rho)) = 0$ \;\; 
+$j_0 = \frac{\sin\rho}{\rho}$; $n_0 = -\frac{\cos\rho}{\rho}$. \\
+$j_l(\rho) \xrightarrow{\rho \to 0} \frac{\rho^l}{(2l+1)!!}$ \;\; $n_l(\rho) \xrightarrow{\rho \to 0} -\frac{(2l-1)!!}{\rho^{l+1}}$ \\
+$j_l(\rho) \xrightarrow{\rho \to \infty} \frac{1}{\rho} \sin\left(\rho - \frac{l\pi}{2}\right)$ \;\; 
+$n_l(\rho) \xrightarrow{\rho \to \infty} -\frac{1}{\rho} \cos\left(\rho - \frac{l\pi}{2}\right)$. \\
+
+\textbf{Hankel Esf.:} $h_l^{(1,2)}(\rho) = j_l(\rho) \pm i n_l(\rho)$. \\
+$h_l^{(1)}(\rho) \xrightarrow{\rho \to \infty} \frac{1}{\rho} e^{i(\rho - \frac{l\pi}{2} - \frac{\pi}{2})}$ \;\; 
+$h_l^{(2)}(\rho) \xrightarrow{\rho \to \infty} \frac{1}{\rho} e^{-i(\rho - \frac{l\pi}{2} - \frac{\pi}{2})}$. \\
+
+\textbf{Pozo de Potencial ($r < a$):} $\left[\frac{d^2}{dr^2} + k^2 + \gamma^2 - \frac{l(l+1)}{r^2}\right] u_l(r) = 0$ \\
+Solución regular: $u_l(r) = C r j_l(r\sqrt{k^2+\gamma^2})$. \\
+
+\textbf{Pozo cosh} $V(r) = -\frac{\hbar^2}{mr_0^2}\frac{1}{\cosh^2(r/r_0)}$ $[\frac{d^2}{dr^2}+ k^2+\frac{2}{\cosh^2 x}] y(x) = 0\Rightarrow y(x)=e^{\pm ikx} (\tanh x \mp ik)$
+
+\textbf{Asintótica con Scattering:} $u_l(r) \xrightarrow{r \to \infty} A_l \sin\left(kr - \frac{l\pi}{2} + \delta_l\right)$ \\
+$f(\theta) = \sum_{l=0}^{\infty} \frac{2l+1}{k} e^{i\delta_l} \sin\delta_l P_l(\cos\theta)$ \\
+
+\textbf{Límite $k \to 0$ (Onda $s$):} $k \cot\delta_0 \approx -\frac{1}{a_s} + \frac{1}{2}r_0 k^2$. \\
+$a_s$ (atractivo): $\frac{1}{|\gamma|}(a|\gamma| - \tanh(a|\gamma|))$ \\
+$a_s$ (repulsivo): $\frac{1}{|\gamma|}(a|\gamma| - \tan(a|\gamma|))$ \\
+
+\textbf{Resonancia B.W.:} $\sigma(E) \approx \frac{2\pi\hbar^2(2l+1)}{mE} \frac{\Gamma^2/4}{(E-E_R)^2 + \Gamma^2/4}$\;\;
+$\delta(E) \approx \delta_{bg} + \arctan\left(\frac{\Gamma/2}{E_R - E}\right)$
+
+
+
+{
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{l l l l}
+\textbf{Quantity} & \textbf{Symbol} & \textbf{Value} & \textbf{Unit} \\
+\noalign{\vskip 1pt \hspace{2pt} \rule{0.99\linewidth}{0.3pt}}
+speed of light in vacuum & $c$ & 299\,792\,458 & m s$^{-1}$ \\
+constant of gravitation & $G$ & $6.67430\times10^{-11}$ & m$^3$ kg$^{-1}$ s$^{-2}$ \\
+Planck constant & $h$ & $6.62607015\times10^{-34}$ & J Hz$^{-1}$ \\
+reduced Planck constant & $\hbar$ & $1.054571817 \times10^{-34}$ & J s \\
+elementary charge & $e$ & $1.602176634\times10^{-19}$ & C \\
+
+%%%% Electromagnetic Constants
+
+vacuum magnetic permeability & $\mu_0\!=4\pi\alpha\hbar/e^2c$ & $1.25663706127\times10^{-6}$ & N A$^{-2}$ \\
+vacuum electric permittivity & $\varepsilon_0=1/\mu_0 c^2$ & $8.8541878128\times10^{-12}$ & F m$^{-1}$ \\
+vacuum impedance&
+$Z_0 = \mu_0c$&
+$376.73031346177$&
+$\Omega$\\
+Josephson constant & $K_J=2e/h$ & $483\,597.8484 \times10^9$ & Hz V$^{-1}$ \\
+von Klitzing constant & $R_K=2\pi\hbar/e^2$ & $25\,812.80745 \ $ & $\Omega$ \\
+magnetic flux quantum & $\Phi_0=2\pi\hbar/2e$ & $2.067833848 \times10^{-15}$ & Wb \\
+conductance quantum & $G_0=2e^2/2\pi\hbar$ & $7.748091729 \times10^{-5}$ & S \\
+inverse conductance quantum&
+$G_0^{-1}$ &
+$12\, 906.40372$&
+$\Omega$\\
+
+
+%%%% Atomic and nuclear constants
+
+electron mass & $m_e$ & $9.1093837139\times10^{-31}$ & kg \\
+proton mass & $m_p$ & $1.67262192595\times10^{-27}$ & kg \\
+proton-electron mass ratio & $m_p/m_e$ & $1836.152673426$ & — \\
+fine-structure constant & $\alpha = e^2/4\pi \varepsilon_0\hbar c$ & $7.2973525643\times10^{-3}$ & — \\
+inverse fine-structure & $\alpha^{-1}$ & $137.035999177$ & — \\
+Bohr Radius&
+$a_0 = \hbar /m_ec\alpha$&
+$5.29177210544\times 10^{-11}$&
+m\\
+classical electron radius&
+$r_e =\alpha ^2a_0$&
+$2.8179403205\times10^{-15}$&
+m\\
+Bohr Magneton&
+$\mu_B = e\hbar/2m_e$&
+$9.2740100657\times 10^{-24}$ &
+J T$^{-1}$\\
+Nuclear Magneton&
+$\mu_N= e\hbar/2m_p$&
+$5.050 783 7393\times10^{-27}$&
+J T$^{-1}$\\
+Rydberg frequency & $cR_\infty\!\!=\!\! \tfrac{\alpha ^2 m_ec}{2h} $ & $3.28984196025\times10^{15}$ & Hz \\
+Hartree energy&
+$E_h {=} \alpha ^2 hcR_{\infty}$&
+$4.359 744 722 21\times10^{-18}$&
+J\\
+
+
+%%%% Physico-chemical constants
+
+
+Boltzmann constant & $k_B$ & $1.380649\times10^{-23}$ & J K$^{-1}$ \\
+Stefan–Boltzmann constant & $\sigma\!=\!\tfrac{\pi^2k^4_{B}\!}{60\hbar^3c^2}$ & $5.670374419 \times10^{-8}$ & W m$^{-2}$ K$^{-4}$ \\
+Avogadro constant & $N_A$ & $6.02214076\times10^{23}$ & mol$^{-1}$ \\
+molar gas constant & $R=N_Ak_B$ & $8.314462618 $ & J mol$^{-1}$ K$^{-1}$ \\
+Faraday constant & $F=N_Ae$ & $96\,485.33212 $ & C mol$^{-1}$ \\
+
+
+\multicolumn{4}{l}{\textbf{Non-SI units}}\\
+\noalign{\vskip 1pt \hspace{2pt} \rule{\linewidth}{0.3pt}}
+h-bar c & $\hbar c$ & $197.3269804$ & eV\! nm{=}MeV \!fm \\
+electron volt & eV & $1.602176634\times10^{-19}$ & J \\
+atomic mass unit & u & $1.66053906892\times10^{-27}$ & kg \\
+atomic mass unit & u & $931.494 102 42$ & MeV c$^{-2}$\\
+Fermi coupling constant&
+$G_F^0{=} G_F/(\hbar c)^3$&
+$1.166 3787\times10^{-5}$&
+GeV$^{-2}$
+\end{tabular}
+}
+
+\hrule
+~\\
+Done by: \href{https://www.linkedin.com/in/jorge-acebes-hern%C3%A1ndez/}{Jorge Acebes Hernández}. Complete code on \href{https://github.com/JorgeAcebes/Formularios/tree/main/Mec%C3%A1nica%20Cu%C3%A1ntica%20Avanzada}{GitHub} and \href{https://es.overleaf.com/read/dppnjspdqqjd#6d689d}{Overleaf}   \; 
+\href{https://creativecommons.org/licenses/by-nc/4.0/}{CC BY-NC 4.0}
+
+No warranty on material accuracy. Last checked: \today
+
+\vfill
+
+
+\clearpage
