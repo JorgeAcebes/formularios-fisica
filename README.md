@@ -1,4 +1,4 @@
-# Physics-LaTeX-Forms
+# Formularios de Física
 Repositorio con formularios de física en $\LaTeX$.
 
 ## Requisitos
